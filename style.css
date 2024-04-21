@@ -4,35 +4,29 @@
     --fonte-numero: 'Sometype Mono', monospace;
     --fonte-texto: "Poppins", sans-serif;
 
-    /* modo escuro */
-    --ME-cor-background: #000;
-    --ME-cor-primeiro-plano: #363636;
-    --ME-cor-texto-secundario: #A7A6A6;
-    --ME-cor-texto-primario: #EEE;
-
-    /* modo claro */
-    --MC-cor-background: #FFF;
-    --MC-cor-primeiro-plano: #FFF;
-    --MC-cor-texto-secundario: #ACACAC;
-    --MC-cor-texto-primario: #262626;
+    /*  */
+    --corBackground: #000;
+    --corPrimeiroPlano: #363636;
+    --corTextoPrimario: #EEE;
+    --corTextoSecundario: #A7A6A6;
 }
 
 body{
     margin: 0;
     padding: 0;
-    background-color: var(--cor-primeiro-plano);
+    background-color: var(--corPrimeiroPlano);
 }
 
 header{
     display: flex;
     gap: 1rem;
-    background-color: var(--cor-background);
-    color: var(--cor-texto-secundario);
+    background-color: var(--corBackground);
+    color: var(--corTextoSecundario);
 }
 
 a{
     text-decoration: none;
-    color: var(--cor-texto-secundario);
+    color: var(--corTextoSecundario);
     padding: 1rem 1rem 1rem 2rem;
 }
 
@@ -44,14 +38,9 @@ footer{
 	left: 0;
 	right: 0;
     padding: 1rem;
-    background-color: var(--cor-background);
-
+    background-color: var(--corBackground);
+    
 }
-
-/* .main_tabela{
-    display: flex;
-    align-items: center;
-} */
 
 table{
     align-items: center;
