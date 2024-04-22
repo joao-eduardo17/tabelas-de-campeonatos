@@ -1,0 +1,12 @@
+{
+  "name": "tabelas-de-campeonatos",
+  "version": "1.0.0",
+  "description": "Este repositório é destinado a criar tabelas de campeonatos",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Sandro Roberto & João Eduardo",
+  "license": "ISC"
+}
