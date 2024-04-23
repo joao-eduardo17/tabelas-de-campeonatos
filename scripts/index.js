@@ -56,6 +56,19 @@ function adicionaClube(nome, pts = 0, pj = 0, vit = 0, emp = 0, der = 0, gp = 0,
     clubes.push(clube)
 }
 
+function adicionaPartida(timeCasa, timeFora, placar){
+    const partida = {
+        "Casa": timeCasa,
+        "Fora": timeFora,
+        "Placar": placar
+    }
+    clubes.forEach((clube) => {
+        if(clube.Nome === timeCasa) {
+            //
+        }
+    })
+}
+
 adicionaClube("Corinthians")
 adicionaClube("São Paulo")
 adicionaClube("Flamengo")
