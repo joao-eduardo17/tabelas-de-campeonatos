@@ -4,7 +4,7 @@
     --fonte-numero: 'Sometype Mono', monospace;
     --fonte-texto: "Poppins", sans-serif;
 
-    /*  */
+    /* Cores da página (somente DarkMode por enquanto) */
     --corBackground: #000;
     --corPrimeiroPlano: #363636;
     --corTextoPrimario: #EEE;
@@ -50,4 +50,8 @@ table{
 #desc{
     border: 2px;
     border-style: solid;
+}
+
+.po{
+    color: aqua;
 }

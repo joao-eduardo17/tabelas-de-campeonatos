@@ -1,115 +1,81 @@
-const mudaModo = document.querySelector("#switch")
-const temas = {
-    claro: {
-        corBackground: "#FFF",
-        corPrimeiroPlano: "#FFF",
-        corTextoPrimario: "#262626",
-        corTextoSecundario: "#ACACAC"
-    },
-    escuro: {
-        corBackground: "#000",
-        corPrimeiroPlano: "#363636",
-        corTextoPrimario: "#EEE",
-        corTextoSecundario: "#A7A6A6"
-    }
-};
+const clubes = []
+const cabecalhoTabela = document.querySelector('#corpoTabela')
+// const mudaModo = document.querySelector("#switch")
+// const temas = {
+//     claro: {
+//         corBackground: "#FFF",
+//         corPrimeiroPlano: "#FFF",
+//         corTextoPrimario: "#262626",
+//         corTextoSecundario: "#ACACAC"
+//     },
+//     escuro: {
+//         corBackground: "#000",
+//         corPrimeiroPlano: "#363636",
+//         corTextoPrimario: "#EEE",
+//         corTextoSecundario: "#A7A6A6"
+//     }
+// };
 
-class Clube {
-    #nome
-    #pontos
-    #partidas
-    #vitorias
-    #empates
-    #derrotas
-    #golsPro
-    #golsContra
-    #saldoGols
+// function setaTema(novoTema){
+//     const corTemas = temas[novoTema]
+//     Object.keys(corTemas).map(function(key) {
+//         html.style.setProperty(`--${key}`, corTemas[key])
+//     })
+// }
 
-    constructor(nome, pontos, partidas, vitorias, empates, derrotas, golsPro, golsContra, saldoGols) {
-        this.#nome = nome
-        this.#pontos = pontos
-        this.#partidas = partidas
-        this.#vitorias = vitorias
-        this.#empates = empates
-        this.#derrotas = derrotas
-        this.#golsPro = golsPro
-        this.#golsContra = golsContra
-        this.#saldoGols = saldoGols
-    }
-    
-    get nome() {
-        return this.#nome
-    }
+// mudaModo.addEventListener('change', function({ target }) {
+//   setaTema(target.checked ? 'claro' : 'escuro');
+// });
 
-    get pontos() {
-        return this.#pontos
-    }
-
-    get partidas() {
-        return this.#partidas
-    }
-
-    get vitorias() {
-        return this.#vitorias
-    }
-
-    get empates() {
-        return this.#empates
-    }
-
-    get derrotas() {
-        return this.#derrotas
-    }
-
-    get golsPro() {
-        return this.#golsPro
-    }
-
-    get golsContra() {
-        return this.#golsContra
-    }
-
-    get saldoGols() {
-        return this.#saldoGols
-    }
-}
-
-class ClubeController {
-    #clubes
-    #cabecalhoTabela
-
-    constructor(clubes){
-        this.#clubes = clubes
-        this.#cabecalhoTabela = document.querySelector('#corpoTabela')
-    }
-
-    adicionaClube(clube){
-        this.#clubes.push(clube)
-    }
-
-    renderizaClubes(){
-        this.#clubes.forEach(clube => {
-            const tr = document.createElement('tr')
-            this.#cabecalhoTabela.appendChild(tr)
-            console.log(clube)
-            for(const chave in clube){
-                const td = document.createElement('td')
-                td.innerHTML = clube[chave]
-                tr.appendChild(td)
-            }
+function renderizaClubes(){
+    clubes.forEach(clube => {
+        const tr = document.createElement('tr')
+        cabecalhoTabela.appendChild(tr)
+        
+        Object.keys(clube).forEach((chave) => {
+            const td = document.createElement('td')
+            td.id = "desc"
+            td.innerHTML = clube[chave]
+            tr.appendChild(td)
         });
     }
+)}
+
+function adicionaClube(nome, pts = 0, pj = 0, vit = 0, emp = 0, der = 0, gp = 0, gc = 0, sg = 0){
+    const clube = {
+        "Nome": nome,
+        "Pontos": pts,
+        "Partidas": pj,
+        "Vitorias": vit,
+        "Empates": emp,
+        "Derrotas": der,
+        "Gols-Pro": gp,
+        "Gols-Contra": gc,
+        "Saldo-Gols": sg
+    }
+    clubes.push(clube)
 }
 
-function setaTema(novoTema){
-    const corTemas = temas[novoTema]
-    Object.keys(corTemas).map(function(key) {
-        html.style.setProperty(`--${key}`, corTemas[key])
-    })
-}
+adicionaClube("Corinthians")
+adicionaClube("São Paulo")
+adicionaClube("Flamengo")
+adicionaClube("Fluminense")
+adicionaClube("Vasco")
+adicionaClube("Botafogo")
+adicionaClube("Grêmio")
+adicionaClube("Internacional")
+adicionaClube("Atlético Mineiro")
+adicionaClube("Cruzeiro")
+adicionaClube("Bahia")
+adicionaClube("Vitória")
+adicionaClube("Juventude")
+adicionaClube("Criciuma")
+adicionaClube("Atlético-GO")
+adicionaClube("Palmeiras")
+adicionaClube("Fortaleza")
+adicionaClube("Athlético Paranaense")
+adicionaClube("Cuiabá")
+adicionaClube("Bragantino")
+renderizaClubes()
 
-console.log("OPA")
-
-const clube = new Clube("Corinthians", 72, 38, 20, 12, 6, 120, 30, 90)
-const controller = new ClubeController([clube])
-controller.renderizaClubes()
+//clubes.toSorted((a, b) => a.Nome.localeCompare(b.Nome))
