@@ -4,23 +4,23 @@
     --fonte-numero: 'Sometype Mono', monospace;
     --fonte-texto: "Poppins", sans-serif;
 
+}
     /* Cores da página (somente DarkMode por enquanto) */
-    --corBackground: #000;
+    /* --corBackground: #F9F9F9;
     --corPrimeiroPlano: #363636;
     --corTextoPrimario: #EEE;
     --corTextoSecundario: #A7A6A6;
-}
 
 body{
     margin: 0;
     padding: 0;
-    background-color: var(--corPrimeiroPlano);
+    background-color: var(--corBackground);
 }
 
 header{
     display: flex;
     gap: 1rem;
-    background-color: var(--corBackground);
+    background-color: var(--corPrimeiroPlano);
     color: var(--corTextoSecundario);
 }
 
@@ -54,4 +54,4 @@ table{
 
 .po{
     color: aqua;
-}
+} */
