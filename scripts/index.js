@@ -117,10 +117,79 @@ function adicionaPartida(timeCasa, timeFora, placar){
     })
 }
 
+function ordenaPartidas(a, b){
+    if(a.Partidas > b.Partidas){
+        return -1
+    } else if(a.Partidas < b.Partidas){
+        return 1
+    } else {
+        return 0
+    }
+}
+
 function ordenaPontos(a, b){
     if(a.Pontos > b.Pontos){
         return -1 
     } else if(a.Pontos < b.Pontos){
+        return 1
+    } else {
+        return 0
+    }
+}
+
+function ordenaVitorias(a, b){
+    if(a.Vitorias > b.Vitorias){
+        return -1
+    } else if(a.Vitorias < b.Vitorias){
+        return 1
+    } else {
+        return 0
+    }
+}
+
+function ordenaEmpates(a, b){
+    if(a.Empates > b.Empates){
+        return -1
+    } else if(a.Empates < b.Empates){
+        return 1
+    } else {
+        return 0
+    }
+}
+
+function ordenaDerrotas(a, b){
+    if(a.Derrotas > b.Derrotas){
+        return -1
+    } else if(a.Derrotas < b.Derrotas){
+        return 1
+    } else {
+        return 0
+    }
+}
+
+function ordenaGp(a, b){
+    if(a['Gols-Pro'] > b['Gols-Pro']){
+        return -1
+    } else if(a['Gols-Pro'] < b['Gols-Pro']){
+        return 1
+    } else {
+        return 0
+    }
+}
+
+function ordenaGc(a, b){
+    if(a['Gols-Contra'] > b['Gols-Contra']){
+        return -1
+    } else if(a['Gols-Contra'] < b['Gols-Contra']){
+        return 1
+    } else {
+        return 0
+    }
+}
+function ordenaSaldo(a, b){
+    if(a['Saldo-Gols'] > b['Saldo-Gols']){
+        return -1
+    } else if(a['Saldo-Gols'] < b['Saldo-Gols']){
         return 1
     } else {
         return 0
@@ -135,7 +204,7 @@ adicionaClube("Vasco")
 adicionaClube("Botafogo")
 adicionaClube("Grêmio")
 adicionaClube("Internacional")
-adicionaClube("Atlético Mineiro")
+adicionaClube("Atlético-MG")
 adicionaClube("Cruzeiro")
 adicionaClube("Bahia")
 adicionaClube("Vitória")
@@ -144,12 +213,23 @@ adicionaClube("Criciuma")
 adicionaClube("Atlético-GO")
 adicionaClube("Palmeiras")
 adicionaClube("Fortaleza")
-adicionaClube("Athlético Paranaense")
+adicionaClube("Athlético-PR")
 adicionaClube("Cuiabá")
 adicionaClube("Bragantino")
 adicionaPartida("Corinthians", "Palmeiras", "10X0")
 adicionaPartida("Cuiabá", "Vitória", "1X1")
-adicionaPartida("Athlético Paranaense", "Fortaleza", "0X2")
+adicionaPartida("Athlético-PR", "Fortaleza", "0X2")
+
+function ordenaSuprema(){
+    
+}
+clubes.sort(ordenaPartidas)
+clubes.sort(ordenaDerrotas)
+clubes.sort(ordenaEmpates)
+clubes.sort(ordenaGc)
+clubes.sort(ordenaGp)
+clubes.sort(ordenaVitorias)
+clubes.sort(ordenaSaldo)
 clubes.sort(ordenaPontos)
 
 renderizaClubes()

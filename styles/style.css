@@ -1,57 +1,77 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&family=Sometype+Mono:ital,wght@0,400..700;1,400..700&display=swap');
 
-:root{
-    --fonte-numero: 'Sometype Mono', monospace;
-    --fonte-texto: "Poppins", sans-serif;
-
-}
-    /* Cores da página (somente DarkMode por enquanto) */
-    /* --corBackground: #F9F9F9;
-    --corPrimeiroPlano: #363636;
-    --corTextoPrimario: #EEE;
-    --corTextoSecundario: #A7A6A6;
-
-body{
+* {
     margin: 0;
     padding: 0;
-    background-color: var(--corBackground);
 }
 
-header{
-    display: flex;
-    gap: 1rem;
-    background-color: var(--corPrimeiroPlano);
-    color: var(--corTextoSecundario);
+body {
+    background-color: var(--claro);
 }
 
-a{
-    text-decoration: none;
-    color: var(--corTextoSecundario);
-    padding: 1rem 1rem 1rem 2rem;
-}
-
-footer{
-    position: absolute;
-	text-align: center;
-	color: white;
-	bottom: 0;
-	left: 0;
-	right: 0;
-    padding: 1rem;
-    background-color: var(--corBackground);
+:root {
+    /* Fontes */
+    --fonte-numero: 'Sometype Mono', monospace;
+    --fonte-texto: "Poppins", sans-serif;
     
+    /* Cores */
+    --cinza: #EEE;
+    --claro: #F9F9F9;
+    --escuro: #342E37;
+    --azul: #086788;
+    --ciano: #07A0C3;
+    --preto: #000;
+    --borda_tabela: #EAEDF2;
+    --titulo-tabela: #F2F2F2;
 }
 
-table{
-    align-items: center;
-    margin: auto;    
+/* NAVBAR */
+.navbar {
+    display: flex;
+    background-color: var(--ciano);
+    padding: 1.3rem 1.3rem 1.3rem 3rem;
+    gap: 1.5rem
 }
 
-#desc{
-    border: 2px;
-    border-style: solid;
+.navbar_link {
+    text-decoration: none;
+    color: var(--escuro);
+    font-family: var(--fonte-texto);
+    font-weight: 500;
+}
+/* NAVBAR */
+
+/* MAIN */
+.main {
+    margin: 1rem;
+    /*  display: flex;
+    justify-content: center; */
+}
+/* MAIN */
+
+/* TABELA */
+
+.main_table, th, td{
+    border: 2.5px solid var(--borda_tabela);
+    text-align: left;
 }
 
-.po{
-    color: aqua;
-} */
+table {
+    width: 50%;
+}
+
+.main_tabela {
+    line-height: 1.5;
+    border: 2px solid var(--borda_tabela);
+    border-collapse: collapse;
+}
+
+th {
+    background-color: var(--titulo-tabela);
+    padding: 0.75rem;
+}
+
+td{
+    font-family: var(--fonte-texto);
+    padding: 3px 1rem 3px;
+}
