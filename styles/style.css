@@ -50,7 +50,6 @@ body {
 /* MAIN */
 
 /* TABELA */
-
 .main_table, th, td{
     border: 2.5px solid var(--borda_tabela);
     text-align: left;
@@ -74,4 +73,12 @@ th {
 td{
     font-family: var(--fonte-texto);
     padding: 3px 1rem 3px;
+}
+/* TABELA */
+
+.modal-add-time {
+    position: absolute;
+    background-color: gray;
+    left: 73vh;
+    top: 50vh;
 }

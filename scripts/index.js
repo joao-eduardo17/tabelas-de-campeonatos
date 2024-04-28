@@ -1,5 +1,30 @@
 const clubes = []
 const cabecalhoTabela = document.querySelector('#corpoTabela')
+const botaoEnvia = document.querySelector('.modal-add-time button')
+
+const button = document.querySelector("button")
+const modal = document.querySelector("dialog")
+const buttonClose = document.querySelector("dialog button")
+
+botaoEnvia.onclick = function() {
+    const casa = ''
+    const fora = ''
+    const placarCasa = ''
+    const placarFora = ''
+    const placar = placarCasa + 'X' + placarFora
+
+    adicionaPartida(casa, fora, placar)
+    renderizaClubes()
+    modal.close()
+}
+
+button.onclick = function () {
+    modal.showModal()
+}
+
+buttonClose.onclick = function () {
+    modal.close()
+}
 
 function renderizaClubes(){
     ordenaTudo()
@@ -203,7 +228,6 @@ adicionaClube("Fortaleza")
 adicionaClube("Athlético-PR")
 adicionaClube("Cuiabá")
 adicionaClube("Bragantino")
-adicionaPartida("Corinthians", "Palmeiras", "10X0")
 
 renderizaClubes()
 
