@@ -1,4 +1,7 @@
 const clubes = []
+const rodadas = []
+let partidas = []
+
 const cabecalhoTabela = document.querySelector('#corpoTabela')
 const botaoEnvia = document.querySelector('.modal-add-time button')
 
@@ -6,40 +9,70 @@ const button = document.querySelector("button")
 const modal = document.querySelector("dialog")
 const buttonClose = document.querySelector("dialog button")
 
+const selectCasa = document.querySelector("#timeCasa")
+const selectFora = document.querySelector("#timeFora")
+
+const placarCasa = document.querySelector("#placarCasa")
+const placarFora = document.querySelector("#placarFora")
+
 botaoEnvia.onclick = function() {
-    const casa = ''
-    const fora = ''
-    const placarCasa = ''
-    const placarFora = ''
-    const placar = placarCasa + 'X' + placarFora
+    const casa = veOpcaoSelecionada(selectCasa)
+    const fora = veOpcaoSelecionada(selectFora)
+    
+    if(fora === casa){
+        alert("Os clubes são iguais")
+        return
+    }
+
+    const placarC = placarCasa.value | 0
+    const placarF = placarFora.value | 0
+    const placar = placarC + 'X' + placarF
 
     adicionaPartida(casa, fora, placar)
     renderizaClubes()
-    modal.close()
+    
+    placarCasa.value = '0'
+    placarFora.value = '0'
+    // modal.close()
 }
 
-button.onclick = function () {
-    modal.showModal()
-}
+// button.onclick = function () {
+//     modal.showModal()
+// }
 
-buttonClose.onclick = function () {
-    modal.close()
-}
+// buttonClose.onclick = function () {
+//     modal.close()
+// }
 
 function renderizaClubes(){
+    cabecalhoTabela.replaceChildren('')
     ordenaTudo()
     clubes.forEach(clube => {
         const tr = document.createElement('tr')
         cabecalhoTabela.appendChild(tr)
-        
+
         Object.keys(clube).forEach((chave) => {
             const td = document.createElement('td')
             td.id = "desc"
             td.innerHTML = clube[chave]
             tr.appendChild(td)
         });
-    }
-)}
+    })
+    
+}
+
+function renderizaOpcoes(){
+    clubes.forEach((clube) => {
+        const opcao = document.createElement('option')
+        opcao.value = clube.Nome.toLowerCase()
+        opcao.innerHTML = clube.Nome
+        const opcao2 = document.createElement('option')
+        opcao2.value = clube.Nome.toLowerCase()
+        opcao2.innerHTML = clube.Nome 
+        selectFora.appendChild(opcao)
+        selectCasa.appendChild(opcao2)
+    })
+}
 
 function adicionaPartida(timeCasa, timeFora, placar){
     const partida = {
@@ -47,15 +80,40 @@ function adicionaPartida(timeCasa, timeFora, placar){
         "Fora": timeFora,
         "Placar": placar
     }
+    
+    if(verificaPartidaRepetida(partida)){
+        alert("Essa partida já ocorreu!")
+        return
+    }
 
+    if(verificaSeJogou(partida.Casa)){
+        alert(`O time ${partida.Casa} já jogou nessa rodada!`)
+        return
+    }
+
+    if(verificaSeJogou(partida.Fora)){
+        alert(`O time ${partida.Fora} já jogou nessa rodada!`)
+        return
+    }
+
+    partidas.push(partida)
+    
+    if(partidas.length == (clubes.length/2)){
+        rodadas.push(partidas)
+        partidas = []
+    }
+    
     clubes.forEach((clube) => {
         if(clube.Nome === timeCasa) {
             placar = partida.Placar
             gp = placar.substring(0, placar.indexOf('X'))
             gc = placar.substring(placar.indexOf('X')+1)
+            gp = parseInt(gp)
+            gc = parseInt(gc)
+
             if(gp == gc) {
                 casoEmpate(clube, gp, gc)
-            } else if(parseInt(gp) > parseInt(gc)) {
+            } else if(gp > gc) {
                 casoVitoria(clube, gp, gc)
             } else {
                 casoDerrota(clube, gp, gc)
@@ -66,9 +124,12 @@ function adicionaPartida(timeCasa, timeFora, placar){
             placar = partida.Placar
             gp = placar.substring(0, placar.indexOf('X'))
             gc = placar.substring(placar.indexOf('X')+1)
+            gp = parseInt(gp)
+            gc = parseInt(gc)
+
             if(gp == gc) {
                 casoEmpate(clube, gc, gp)
-            } else if(parseInt(gp) > parseInt(gc)) {
+            } else if(gp > gc) {
                 casoDerrota(clube, gc, gp)
             } else {
                 casoVitoria(clube, gc, gp)
@@ -90,6 +151,24 @@ function adicionaClube(nome, pts = 0, pj = 0, vit = 0, emp = 0, der = 0, gp = 0,
         "Saldo-Gols": parseInt(sg)
     }
     clubes.push(clube)
+}
+
+function veOpcaoSelecionada(tagSelect){
+    let opcaoSelecionada;
+    tagSelect.childNodes.forEach((tagOption) => {
+        if(tagOption.selected){
+            opcaoSelecionada = tagOption.outerText
+        }
+    })
+    return opcaoSelecionada
+}
+
+function verificaPartidaRepetida(partida){
+    return partidas.find((p) => p.Casa == partida.Casa && p.Fora == partida.Fora) != undefined
+}
+
+function verificaSeJogou(nome){
+    return partidas.find((e) => e.Casa == nome || e.Fora == nome) != undefined
 }
 
 function casoEmpate(clube, gp, gc) {
@@ -230,6 +309,7 @@ adicionaClube("Cuiabá")
 adicionaClube("Bragantino")
 
 renderizaClubes()
+renderizaOpcoes()
 
 //clubes.sort((a, b) => a.Nome.localeCompare(b.Nome))
 // const mudaModo = document.querySelector("#switch")
