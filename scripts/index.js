@@ -1,6 +1,7 @@
 const clubes = []
 const rodadas = []
 let partidas = []
+let rodadaAtual = 1
 
 const cabecalhoTabela = document.querySelector('#corpoTabela')
 const botaoEnvia = document.querySelector('.modal-add-time button')
@@ -164,11 +165,15 @@ function veOpcaoSelecionada(tagSelect){
 }
 
 function verificaPartidaRepetida(partida){
-    return partidas.find((p) => p.Casa == partida.Casa && p.Fora == partida.Fora) != undefined
+    const tudo = []
+    rodadas.forEach((rodada) => rodada.forEach(partida => tudo.push(partida)))
+    return tudo.find((p) => p.Casa == partida.Casa && p.Fora == partida.Fora) != undefined
 }
 
 function verificaSeJogou(nome){
-    return partidas.find((e) => e.Casa == nome || e.Fora == nome) != undefined
+    const tudo = []
+    rodadas.forEach((rodada) => rodada.forEach(partida => tudo.push(partida)))
+    return tudo.find((e) => e.Casa == nome || e.Fora == nome) != undefined
 }
 
 function casoEmpate(clube, gp, gc) {
