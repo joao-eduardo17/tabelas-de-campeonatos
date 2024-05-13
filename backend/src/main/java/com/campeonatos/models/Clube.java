@@ -23,6 +23,7 @@ public class Clube implements Comparable<Clube>{
         this.saldoGols = saldoGols;
     }
 
+    @Override
     public int compareTo(Clube clube){
         return this.porPontos(clube);
     }
