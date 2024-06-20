@@ -8,10 +8,14 @@ public class RodadaController {
     private ArrayList<Rodada> rodadas;
 
     public RodadaController(ArrayList<Rodada> rodadas) {
-        
-    }
-    public criaRodada(ArrayList<Partida> rodada) {
-        return this.rodada;
+        this.rodadas = rodadas;
     }
 
+    public void adicionaRodada(ArrayList<Partida> rodada) {
+        this.rodadas.add(rodada);
+    }
+
+    public ArrayList<Rodada> getRodada() {
+        return this.rodada;
+    }
 }

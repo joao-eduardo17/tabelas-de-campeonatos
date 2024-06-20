@@ -13,9 +13,5 @@ public class Rodada {
 
     public ArrayList<Partida> getRodada() {
         return this.rodada;
-    }
-    // public 
-//         cria Rodada
-//         get Rodada = get partidas
-//     rodada = lista partidas    
+    }  
 }
