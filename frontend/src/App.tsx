@@ -1,7 +1,7 @@
 function App() {
   return (
     <div>
-        tabela capeonatos
+        
     </div>
   );
 }
