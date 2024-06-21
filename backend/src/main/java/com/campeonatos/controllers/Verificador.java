@@ -1,6 +1,7 @@
 package com.campeonatos.controllers;
 
 import java.util.ArrayList;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 import com.campeonatos.models.Partida;
 
@@ -14,7 +15,7 @@ public class Verificador {
     }
 
     public boolean verificaPartidaRepetida(Partida partida) {
-        Boolean repetiu = false;
+        AtomicBoolean repetiu = new AtomicBoolean(false);
         this.rodadas.forEach((rodada) -> {
             rodada.getRodada().forEach((partida1) -> {
                 if(partida1.getCasa().equals(partida.getCasa()) && partida1.getFora().equals(partida.getFora())) {
@@ -22,11 +23,11 @@ public class Verificador {
                 }
             });
         });
-        return repetiu.getBoolean();
+        return repetiu.get();
     }
 
     public boolean verificaSeJogou(String nome) {
-        Boolean jogou = false;
+        AtomicBoolean jogou = new AtomicBoolean(false);
         this.rodadas.forEach((rodada) -> {
             rodada.getRodada().forEach((partida) -> {
                 if(partida.getCasa().equals(nome) || partida.getFora().equals(nome)) {
@@ -34,7 +35,7 @@ public class Verificador {
                 }
             });
         });
-        return jogou.getBoolean();
+        return jogou.get();
     }
 
 }

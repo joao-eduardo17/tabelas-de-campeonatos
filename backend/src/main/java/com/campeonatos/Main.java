@@ -34,11 +34,12 @@ public class Main {
         rodadas.add(rodada1);
         rodadas.add(rodada2);
         Verificador verificador = new Verificador(rodadas);
-        verificador.verificaSeJogou("Corinthians");
+//        System.out.println(verificador.verificaSeJogou("Corinthians"));
+//        System.out.println(verificador.verificaSeJogou("Santos"));
         verificador.verificaSeJogou("Vasco");
         verificador.verificaSeJogou("Santos");
-        verificador.verificaPartidaRepetida(partida4);
-        verificador.verificaPartidaRepetida(new Partida("Flamengo", "Corinthians", "0X1"));
+        System.out.println(verificador.verificaPartidaRepetida(partida3));
+        System.out.println(verificador.verificaPartidaRepetida(new Partida("Flamengo", "Corinthians", "0X1")));
         ordenador.ordena(clubes);
         System.out.println(clubes.get(0).getNome());
         System.out.println(clubes.get(1).getNome());
