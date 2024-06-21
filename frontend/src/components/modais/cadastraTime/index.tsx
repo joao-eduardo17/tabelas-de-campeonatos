@@ -1,25 +1,24 @@
 import { Component } from "react";
-import Placar from "../../placar";
 
-export default class CadastraPartida extends Component {
+export default class CadastraTime extends Component {
     render() {
         return (
             <>
-                <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addPartida">Tabela</button>
-                <div className="modal" id="addPartida" tabIndex={1} aria-labelledby="modalLabel" aria-hidden="true">
+                <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addTime">Tabela</button>
+                <div className="modal" id="addTime" tabIndex={1} aria-labelledby="modalLabel" aria-hidden="true">
                     <div className="modal-dialog modal-dialog-centered">
                         <div className="modal-content">
                             <div className="modal-header">
-                                <h5 className="modal-title">Nova Partida</h5>
+                                <h5 className="modal-title">Novo Time</h5>
                                 <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div className="modal-body">
                             <div className="input-group mb-3">
-                                <Placar />
+                                <input type="text" className="form-control" placeholder="Nome do Clube" aria-label="Nome do Clube" aria-describedby="basic-addon1"/>
                             </div>
                             </div>
                             <div className="modal-footer">
-                                <button type="button" className="btn btn-primary">Adicionar partida</button>
+                                <button type="button" className="btn btn-primary">Adicionar time</button>
                             </div>
                         </div>
                     </div>
