@@ -11,6 +11,18 @@ public class Clube implements Comparable<Clube>{
     private int golsContra;
     private int saldoGols;
 
+    public Clube(String nome){
+        this.nome = nome;
+        this.pontos = 0;
+        this.partidas = 0;
+        this.vitorias = 0;
+        this.empates = 0;
+        this.derrotas = 0;
+        this.golsPro = 0;
+        this.golsContra = 0;
+        this.saldoGols = 0;
+    }
+
     public Clube(String nome, int pontos, int partidas, int vitorias, int empates, int derrotas, int golsPro, int golsContra, int saldoGols){
         this.nome = nome;
         this.pontos = pontos;
