@@ -1,6 +1,6 @@
 import { Component } from "react";
 
-interface Clube {
+export interface Clube {
     nome: string
     pontos: number,
     jogos: number,
