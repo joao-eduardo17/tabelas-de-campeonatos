@@ -1,4 +1,4 @@
-package main.java.com.campeonatos.models;
+package com.campeonatos.models;
 
 import java.util.ArrayList;
 

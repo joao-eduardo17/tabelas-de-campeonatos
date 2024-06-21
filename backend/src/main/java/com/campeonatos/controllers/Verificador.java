@@ -5,7 +5,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 
 import com.campeonatos.models.Partida;
 
-import main.java.com.campeonatos.models.Rodada;
+import com.campeonatos.models.Rodada;
 
 public class Verificador {
     private ArrayList<Rodada> rodadas;

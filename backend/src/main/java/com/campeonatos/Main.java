@@ -4,8 +4,7 @@ import java.util.ArrayList;
 
 import com.campeonatos.models.Clube;
 import com.campeonatos.models.Partida;
-
-import main.java.com.campeonatos.models.Rodada;
+import com.campeonatos.models.Rodada;
 
 import com.campeonatos.controllers.Ordenador;
 import com.campeonatos.controllers.Verificador;
@@ -18,8 +17,8 @@ public class Main {
         clubes.add(new Clube("Palmeiras", 0, 38, 0, 0, 38, 0, 55, -55));
         clubes.add(new Clube("São Paulo", 50, 38, 15, 5, 18, 50, 45, 5));
         Ordenador ordenador = new Ordenador();
-        ArrayList<Partida> partidas1 = new ArrayList<Partida>();
-        ArrayList<Partida> partidas2 = new ArrayList<Partida>();
+        ArrayList<Partida> partidas1 = new ArrayList<>();
+        ArrayList<Partida> partidas2 = new ArrayList<>();
         Partida partida1 = new Partida("Corinthians", "Palmeiras", "7X1");
         Partida partida2 = new Partida("Vasco", "Flamengo", "5X0");
         Partida partida3 = new Partida("Corinthians", "Flamengo", "7X1");
@@ -30,7 +29,7 @@ public class Main {
         partidas2.add(partida4);
         Rodada rodada1 = new Rodada(partidas1);
         Rodada rodada2 = new Rodada(partidas2);
-        ArrayList<Rodada> rodadas = new ArrayList<Rodada>();
+        ArrayList<Rodada> rodadas = new ArrayList<>();
         rodadas.add(rodada1);
         rodadas.add(rodada2);
         Verificador verificador = new Verificador(rodadas);
