@@ -35,7 +35,6 @@ export default class Campeonato extends Component {
             <>
                 <Tabela titulos={titulos} clubes={clubes}/>
                 <CadastraPartida/>
-                <CadastraTime/>
             </>
         )
     }

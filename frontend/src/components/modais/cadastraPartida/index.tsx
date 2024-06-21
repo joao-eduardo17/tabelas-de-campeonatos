@@ -1,11 +1,12 @@
 import { Component } from "react";
 import Placar from "../../placar";
+import Botao from "../../botao";
 
 export default class CadastraPartida extends Component {
     render() {
         return (
             <>
-                <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addPartida">Tabela</button>
+                <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addPartida">Adicionar clube</button>
                 <div className="modal" id="addPartida" tabIndex={1} aria-labelledby="modalLabel" aria-hidden="true">
                     <div className="modal-dialog modal-dialog-centered">
                         <div className="modal-content">
@@ -19,7 +20,7 @@ export default class CadastraPartida extends Component {
                             </div>
                             </div>
                             <div className="modal-footer">
-                                <button type="button" className="btn btn-primary">Adicionar partida</button>
+                                <Botao titulo="Adicionar partida"/>
                             </div>
                         </div>
                     </div>

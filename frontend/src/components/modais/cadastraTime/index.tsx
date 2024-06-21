@@ -1,10 +1,11 @@
 import { Component } from "react";
+import Botao from "../../botao";
 
 export default class CadastraTime extends Component {
     render() {
         return (
             <>
-                <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addTime">Tabela</button>
+                <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addTime">Adicionar time</button>
                 <div className="modal" id="addTime" tabIndex={1} aria-labelledby="modalLabel" aria-hidden="true">
                     <div className="modal-dialog modal-dialog-centered">
                         <div className="modal-content">
@@ -18,7 +19,7 @@ export default class CadastraTime extends Component {
                             </div>
                             </div>
                             <div className="modal-footer">
-                                <button type="button" className="btn btn-primary">Adicionar time</button>
+                                <Botao titulo="Adicionar time"/>
                             </div>
                         </div>
                     </div>
