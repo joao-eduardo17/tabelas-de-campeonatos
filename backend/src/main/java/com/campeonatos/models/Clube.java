@@ -1,6 +1,10 @@
 package com.campeonatos.models;
 
+import lombok.Getter;
+
+@Getter
 public class Clube implements Comparable<Clube>{
+    private long id;
     private String nome;
     private int pontos;
     private int partidas;
@@ -11,7 +15,8 @@ public class Clube implements Comparable<Clube>{
     private int golsContra;
     private int saldoGols;
 
-    public Clube(String nome){
+    public Clube(long id, String nome){
+        this.id = id;
         this.nome = nome;
         this.pontos = 0;
         this.partidas = 0;
@@ -23,7 +28,8 @@ public class Clube implements Comparable<Clube>{
         this.saldoGols = 0;
     }
 
-    public Clube(String nome, int pontos, int partidas, int vitorias, int empates, int derrotas, int golsPro, int golsContra, int saldoGols){
+    public Clube(long id, String nome, int pontos, int partidas, int vitorias, int empates, int derrotas, int golsPro, int golsContra, int saldoGols){
+        this.id = id;
         this.nome = nome;
         this.pontos = pontos;
         this.partidas = partidas;
@@ -119,41 +125,4 @@ public class Clube implements Comparable<Clube>{
             return 0;
         }
     }
-
-    public String getNome() {
-        return this.nome;
-    }
-
-    public int getPontos() {
-        return this.pontos;
-    }
-
-    public int getPartidas() {
-        return this.partidas;
-    }
-    
-    public int getVitorias() {
-        return this.vitorias;
-    }
- 
-    public int getEmpates() {
-        return this.empates;
-    }
- 
-    public int getDerrotas() {
-        return this.derrotas;
-    }
- 
-    public int getGolsPro() {
-        return this.golsPro;
-    }
- 
-    public int getGolsContra() {
-        return this.golsContra;
-    }
- 
-    public int getSaldoGols() {
-        return this.saldoGols;
-    }
-
 }
