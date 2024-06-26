@@ -1,7 +1,6 @@
 import { Component } from "react";
 import Tabela, { Clube } from "../../components/tabela";
 import CadastraPartida from "../../components/modais/cadastraPartida";
-import CadastraTime from "../../components/modais/cadastraTime";
 
 export default class Campeonato extends Component {
     render() {

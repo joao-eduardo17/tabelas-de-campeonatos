@@ -6,7 +6,7 @@ export default class CadastraPartida extends Component {
     render() {
         return (
             <>
-                <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addPartida">Adicionar clube</button>
+                <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addPartida">Adicionar partida</button>
                 <div className="modal" id="addPartida" tabIndex={1} aria-labelledby="modalLabel" aria-hidden="true">
                     <div className="modal-dialog modal-dialog-centered">
                         <div className="modal-content">

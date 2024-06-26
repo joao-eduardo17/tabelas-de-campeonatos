@@ -7,9 +7,6 @@ type Props = {
 
 export default class Lista extends Component<Props> {
     render() {
-        const font = {
-
-        } 
 
         return (
             <>
@@ -19,7 +16,7 @@ export default class Lista extends Component<Props> {
                         index % 2 === 0 ? (
                         <li className="list-group-item" key={index+1}>{item}</li>
                         ) : (
-                            <li className="list-group-item list-group-item-secondary" key={index}>{item}</li>
+                            <li className="list-group-item list-group-item-secondary" key={index+1}>{item}</li>
                         )
                     ))}
                 </ul>
