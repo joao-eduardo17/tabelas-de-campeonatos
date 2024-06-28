@@ -2,7 +2,7 @@ package com.campeonatos.controllers;
 
 import java.util.ArrayList;
 
-import com.campeonatos.models.Clube;
+import com.campeonatos.models.clube.Clube;
 import org.springframework.web.bind.annotation.*;
 
 @RestController

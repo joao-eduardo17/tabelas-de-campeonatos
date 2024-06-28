@@ -1,4 +1,4 @@
-package com.campeonatos.models;
+package com.campeonatos.models.clube;
 
 import lombok.Getter;
 
