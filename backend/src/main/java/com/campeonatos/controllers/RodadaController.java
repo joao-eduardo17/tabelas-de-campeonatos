@@ -1,26 +1,54 @@
 package com.campeonatos.controllers;
 
-import com.campeonatos.models.Rodada;
+import com.campeonatos.models.rodada.Rodada;
+import com.campeonatos.models.rodada.RodadaRepository;
+import com.campeonatos.models.rodada.RodadaRequest;
+import com.campeonatos.models.rodada.RodadaResponse;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
+import java.util.List;
 
 @RestController
-@RequestMapping("rodada")
 public class RodadaController {
-    private ArrayList<Rodada> rodadas;
+    @Autowired
+    private RodadaRepository repository;
 
-    public RodadaController(ArrayList<Rodada> rodadas) {
-        this.rodadas = rodadas;
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
+    @PostMapping("/rodada")
+    public void adicionaRodada(@RequestBody RodadaRequest rodada) {
+        Rodada rodadaData = new Rodada(rodada);
+        repository.save(rodadaData);
     }
 
-    @PostMapping
-    public void adicionaRodada(@RequestBody Rodada rodada) {
-        this.rodadas.add(rodada);
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
+    @GetMapping("/rodadas")
+    public List<RodadaResponse> getRodadas() {
+        List<RodadaResponse> rodadas = repository.findAll().stream().map(RodadaResponse::new).toList();
+        return rodadas;
     }
 
-    @GetMapping
-    public ArrayList<Rodada> getRodadas() {
-        return this.rodadas;
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
+    @GetMapping("/rodadaByCampeonatoId/{id}")
+    public List<RodadaResponse> getRodadasByCampeonatoId(@PathVariable("id") long campeonatoId) {
+        List<RodadaResponse> rodadas = repository.findByCampeonatoId(campeonatoId).stream().map(RodadaResponse::new).toList();
+        return rodadas;
+    }
+
+
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
+    @PutMapping("/rodada/{id}")
+    public void alteraRodada(@RequestBody RodadaRequest rodada, @PathVariable("id") long campeonatoId) {
+        Rodada rodadaData = repository.findById(campeonatoId).get();
+        rodadaData.setNumero(rodada.numero());
+        rodadaData.setCampeonatoId(rodada.campeonatoId());
+
+        repository.save(rodadaData);
+    }
+
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
+    @DeleteMapping("/rodada/{id}")
+    public void apagaRodada(@PathVariable("id") long campeonatoId) {
+        repository.deleteById(campeonatoId);
     }
 }

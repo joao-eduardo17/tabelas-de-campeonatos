@@ -29,6 +29,13 @@ public class PerfilController {
     }
 
     @CrossOrigin(origins = "*", allowedHeaders = "*")
+    @GetMapping("/perfilByUsuarioId/{id}")
+    public List<PerfilResponse> getPerfisByUsuarioId(@PathVariable("id") long usuarioId) {
+        List<PerfilResponse> perfis = repository.findByUsuarioId(usuarioId).stream().map(PerfilResponse::new).toList();
+        return perfis;
+    }
+
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
     @PutMapping("/perfil/{id}")
     public void alteraPerfil(@RequestBody PerfilRequest perfil, @PathVariable("id") long perfilId) {
         Perfil perfilData = repository.findById(perfilId).get();

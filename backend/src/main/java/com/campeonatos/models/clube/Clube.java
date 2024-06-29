@@ -1,44 +1,49 @@
 package com.campeonatos.models.clube;
 
-import lombok.Getter;
+import jakarta.persistence.*;
+import lombok.*;
 
+@Table(name = "clubes")
+@Entity(name = "clubes")
+@AllArgsConstructor
+@NoArgsConstructor
 @Getter
+@EqualsAndHashCode(of = "id")
 public class Clube implements Comparable<Clube>{
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+    @Setter
     private String nome;
+    @Setter
     private int pontos;
+    @Setter
     private int partidas;
+    @Setter
     private int vitorias;
+    @Setter
     private int empates;
+    @Setter
     private int derrotas;
+    @Setter
     private int golsPro;
+    @Setter
     private int golsContra;
+    @Setter
     private int saldoGols;
+    @Setter
+    private long campeonatoId;
 
-    public Clube(long id, String nome){
-        this.id = id;
-        this.nome = nome;
-        this.pontos = 0;
-        this.partidas = 0;
-        this.vitorias = 0;
-        this.empates = 0;
-        this.derrotas = 0;
-        this.golsPro = 0;
-        this.golsContra = 0;
-        this.saldoGols = 0;
-    }
-
-    public Clube(long id, String nome, int pontos, int partidas, int vitorias, int empates, int derrotas, int golsPro, int golsContra, int saldoGols){
-        this.id = id;
-        this.nome = nome;
-        this.pontos = pontos;
-        this.partidas = partidas;
-        this.vitorias = vitorias;
-        this.empates = empates;
-        this.derrotas = derrotas;
-        this.golsPro = golsPro;
-        this.golsContra = golsContra;
-        this.saldoGols = saldoGols;
+    public Clube(ClubeRequest clube){
+        this.nome = clube.nome();
+        this.pontos = clube.pontos();
+        this.partidas = clube.partidas();
+        this.vitorias = clube.vitorias();
+        this.empates = clube.empates();
+        this.derrotas = clube.derrotas();
+        this.golsPro = clube.golsPro();
+        this.golsContra = clube.golsContra();
+        this.saldoGols = clube.saldoGols();
+        this.campeonatoId = clube.campeonatoId();
     }
 
     @Override
