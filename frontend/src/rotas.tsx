@@ -2,6 +2,7 @@ import { Component } from "react";
 import Campeonato from "./pages/campeonato";
 import Navbar from "./components/navbar";
 import CriacaoCampeonato from "./pages/criacaoCampeonato";
+import CadastroUsuario from "./pages/cadastros/usuario";
 
 type State = {
   tela: string
@@ -24,7 +25,7 @@ export default class Rotas extends Component<{}, State> {
   }
 
   render() {
-    const navbar = <Navbar paginas={["Home", "Criação de Campeonato", "Campeonato"]} mudaTela={this.mudaTela}/>
+    const navbar = <Navbar paginas={["Home", "Criação de Campeonato", "Campeonato", "Cadastro Usuário"]} mudaTela={this.mudaTela}/>
 
     if(this.state.tela === "Home"){
       return (
@@ -44,6 +45,13 @@ export default class Rotas extends Component<{}, State> {
         <>
           {navbar}
           <Campeonato/>
+        </>
+      )
+    } else if(this.state.tela === "Cadastro Usuário"){
+      return(
+        <>
+          {navbar}
+          <CadastroUsuario />
         </>
       )
     }

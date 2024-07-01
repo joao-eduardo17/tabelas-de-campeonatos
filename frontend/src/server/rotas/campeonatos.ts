@@ -15,7 +15,7 @@ export default class Campeonatos {
         })
     }
 
-    public async putCampeonato(id: number, nome: string, tipo: string, perfil_id: number) {
+    public async putCampeonato(id: number, nome?: string, tipo?: string, perfil_id?: number) {
         if(nome) {
             await api.put(`/campeonato/${id}`, {
                 nome: nome
