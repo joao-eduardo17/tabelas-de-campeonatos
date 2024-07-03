@@ -3,6 +3,7 @@ import Campeonato from "./pages/campeonato";
 import Navbar from "./components/navbar";
 import CriacaoCampeonato from "./pages/criacaoCampeonato";
 import CadastroUsuario from "./pages/cadastros/usuario";
+import Estatisticas from "./pages/estatisticas";
 
 type State = {
   tela: string
@@ -25,7 +26,7 @@ export default class Rotas extends Component<{}, State> {
   }
 
   render() {
-    const navbar = <Navbar paginas={["Home", "Criação de Campeonato", "Campeonato", "Cadastro Usuário"]} mudaTela={this.mudaTela}/>
+    const navbar = <Navbar paginas={["Home", "Criação de Campeonato", "Campeonato", "Cadastro Usuário", "Estatísticas(teste)"]} mudaTela={this.mudaTela}/>
 
     if(this.state.tela === "Home"){
       return (
@@ -51,7 +52,14 @@ export default class Rotas extends Component<{}, State> {
       return(
         <>
           {navbar}
-          <CadastroUsuario />
+          <CadastroUsuario/>
+        </>
+      )
+    } else if(this.state.tela === "Estatísticas(teste)"){
+      return(
+        <>
+          {navbar}
+          <Estatisticas clube={{nome:"Corinthians", derrotas:0, empates: 3, vitorias: 17, jogos: 20, pontos: 44, pos: 1, gc: 2, gp: 24, sg: 22}} historico={[{casa: "Corinthians", fora: "Palmeiras", placar: "5X0"}, {casa: "Corinthians", fora: "Vasco", placar: "4X2"}]}/>
         </>
       )
     }

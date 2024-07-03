@@ -1,16 +1,5 @@
 import { Component } from "react";
-
-export interface Clube {
-    nome: string
-    pontos: number,
-    jogos: number,
-    vitorias: number,
-    empates: number,
-    derrotas: number,
-    gp: number,
-    gc: number,
-    sg: number
-}
+import Clube from "../../interfaces/clube";
 
 type Props = {
     titulos: string[]
