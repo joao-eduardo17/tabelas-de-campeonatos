@@ -13,6 +13,7 @@ export default class Usuarios {
             email: email,
             senha: senha
         })
+        // console.log("DEU CERTO?")
     }
 
     public async putUsuario(id: number, nome?: string, email?: string, senha?: string) {
