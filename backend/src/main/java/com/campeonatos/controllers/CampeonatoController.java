@@ -41,6 +41,7 @@ public class CampeonatoController {
         Campeonato campeonatoData = repository.findById(campeonatoId).get();
         campeonatoData.setNome(campeonato.nome());
         campeonatoData.setTipo(campeonato.tipo());
+        campeonatoData.setFinalizado(campeonato.finalizado()    );
         campeonatoData.setPerfilId(campeonato.perfilId());
         repository.save(campeonatoData);
     }

@@ -48,9 +48,8 @@ public class PartidaController {
     @PutMapping("/partida/{id}")
     public void alteraPartida(@RequestBody PartidaRequest partida, @PathVariable("id") long partidaId) {
         Partida partidaData = repository.findById(partidaId).get();
-        partidaData.setCasa(partida.casa());
-        partidaData.setFora(partida.fora());
-        partidaData.setPlacar(partida.placar());
+        partidaData.setPlacarCasa(partida.placarCasa());
+        partidaData.setPlacarFora(partida.placarFora());
         partidaData.setRodadaId(partida.rodadaId());
         partidaData.setClubeCasaId(partida.clubeCasaId());
         partidaData.setClubeForaId(partida.clubeForaId());

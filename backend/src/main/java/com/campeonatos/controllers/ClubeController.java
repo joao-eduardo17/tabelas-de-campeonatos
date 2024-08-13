@@ -40,14 +40,8 @@ public class ClubeController {
     public void alteraClube(@RequestBody ClubeRequest clube, @PathVariable("id") long clubeId) {
         Clube clubeData = repository.findById(clubeId).get();
         clubeData.setNome(clube.nome());
-        clubeData.setPontos(clube.pontos());
-        clubeData.setPartidas(clube.partidas());
-        clubeData.setVitorias(clube.vitorias());
-        clubeData.setEmpates(clube.empates());
-        clubeData.setDerrotas(clube.derrotas());
-        clubeData.setGolsPro(clube.golsPro());
-        clubeData.setGolsContra(clube.golsContra());
-        clubeData.setSaldoGols(clube.saldoGols());
+        clubeData.setDataCriacao(clube.dataCriacao());
+        clubeData.setImagem(clube.imagem());
         clubeData.setCampeonatoId(clube.campeonatoId());
 
         repository.save(clubeData);

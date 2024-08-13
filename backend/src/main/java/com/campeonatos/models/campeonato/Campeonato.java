@@ -17,11 +17,14 @@ public class Campeonato {
     @Setter
     private String tipo;
     @Setter
+    private boolean finalizado;
+    @Setter
     private long perfilId;
 
     public Campeonato(CampeonatoRequest campeonato) {
         this.nome = campeonato.nome();
         this.tipo = campeonato.tipo();
+        this.finalizado = campeonato.finalizado();
         this.perfilId = campeonato.perfilId();
     }
 }

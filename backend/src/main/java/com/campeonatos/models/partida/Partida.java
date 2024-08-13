@@ -13,11 +13,9 @@ public class Partida {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     @Setter
-    private String casa;
+    private int placarCasa;
     @Setter
-    private String fora;
-    @Setter
-    private String placar;
+    private int placarFora;
     @Setter
     private long rodadaId;
     @Setter
@@ -26,9 +24,8 @@ public class Partida {
     private long clubeForaId;
 
     public Partida(PartidaRequest partida){
-        this.casa = partida.casa();
-        this.fora = partida.fora();
-        this.placar = partida.placar();
+        this.placarCasa = partida.placarCasa();
+        this.placarFora = partida.placarFora();
         this.rodadaId = partida.rodadaId();
         this.clubeCasaId = partida.clubeCasaId();
         this.clubeForaId = partida.clubeForaId();
