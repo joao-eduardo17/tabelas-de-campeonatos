@@ -6,54 +6,37 @@ export default class Clubes {
         const response = await api.get("/clubes")
         return response.data
     }
+
+    public async getClubeByCampeonato(id: number) {
+        const response = await api.get(`/clubeByCampeonatoId/${id}`)
+        return response.data
+    }
     
-    public async postClube(nome: string, campeonato_id: number) {
+    public async postClube(nome: string, campeonato_id: number, dataCriacao?: Date, imagem?: string) {
         await api.post("/clube", {
             nome: nome,
-            campeonato_id: campeonato_id
+            campeonato_id: campeonato_id,
+            dataCriacao: dataCriacao,
+            imagem: imagem
         })
     }
     
-    public async putClube(id: number, nome?: string, pontos?: number, partidas?: number, vitorias?: number, empates?: number, derrotas?: number, golsPro?: number, golsContra?: number, saldoGols?: number, campeonato_id?: number){
+    public async putClube(id: number, nome?: string, campeonato_id?: number, dataCriacao?: Date, imagem?: string){
         if(nome) {
             await api.put(`/clube/${id}`, {
                 nome: nome
             })
-        }if(pontos) {
-            await api.put(`/clube/${id}`, {
-                pontos: pontos
-            })
-        }if(partidas) {
-            await api.put(`/clube/${id}`, {
-                partidas: partidas
-            })
-        }if(vitorias) {
-            await api.put(`/clube/${id}`, {
-                vitorias: vitorias
-            })
-        }if(empates) {
-            await api.put(`/clube/${id}`, {
-                empates: empates
-            })
-        }if(derrotas) {
-            await api.put(`/clube/${id}`, {
-                derrotas: derrotas
-            })
-        }if(golsPro) {
-            await api.put(`/clube/${id}`, {
-                golsPro: golsPro
-            })
-        }if(golsContra) {
-            await api.put(`/clube/${id}`, {
-                golsContra: golsContra
-            })
-        }if(saldoGols) {
-            await api.put(`/clube/${id}`, {
-                saldoGols: saldoGols
-            })
         }if(campeonato_id) {
             await api.put(`/clube/${id}`, {
                 campeonato_id: campeonato_id
+            })
+        }if(dataCriacao) {
+            await api.put(`/clube/${id}`, {
+                dataCriacao: dataCriacao
+            })
+        }if(imagem) {
+            await api.put(`/clube/${id}`, {
+                imagem: imagem
             })
         }
     }

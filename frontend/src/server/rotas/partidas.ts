@@ -7,17 +7,27 @@ export default class Partidas {
         return response.data
     }
 
-    public async postPartida(casa: string, fora: string, placar: string, clube_casa_id: number, clube_fora_id: number) {
+    public async getPartidasByClube(id: number) {
+        const response = await api.get(`/partidaByClubeId/${id}`)
+        return response.data
+    }
+
+    public async getPartidasByRodada(id: number) {
+        const response = await api.get(`/partidaByRodadaId/${id}`)
+        return response.data
+    }
+
+    public async postPartida(casa: string, fora: string, clube_casa_id: number, clube_fora_id: number, rodada_id: number) {
         await api.post("/partida", {
             casa: casa,
             fora: fora,
-            placar: placar,
             clube_casa_id: clube_casa_id,
-            clube_fora_id: clube_fora_id
+            clube_fora_id: clube_fora_id,
+            rodada_id: rodada_id   
         })
     }
 
-    public async putPartida(id: number, casa?: string, fora?: string, placar?: string, clube_casa_id?: number, clube_fora_id?: number) {
+    public async putPartida(id: number, casa?: string, fora?: string, clube_casa_id?: number, clube_fora_id?: number, rodada_id?: number) {
         if(casa) {
             await api.put(`/partida/${id}`, {
                 casa: casa
@@ -26,10 +36,6 @@ export default class Partidas {
             await api.put(`/partida/${id}`, {
                 fora: fora
             })
-        }if(placar) {
-            await api.put(`/partida/${id}`, {
-                placar: placar
-            })
         }if(clube_casa_id) {
             await api.put(`/partida/${id}`, {
                 clube_casa_id: clube_casa_id
@@ -37,6 +43,10 @@ export default class Partidas {
         }if(clube_fora_id) {
             await api.put(`/partida/${id}`, {
                 clube_fora_id: clube_fora_id
+            })
+        }if(rodada_id) {
+            await api.put(`/partida/${id}`, {
+                rodada_id: rodada_id
             })
         }
     }

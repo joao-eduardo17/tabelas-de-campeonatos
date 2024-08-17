@@ -1,6 +1,6 @@
-import { Component, createRef } from "react";
+import { Component } from "react";
 import Input from "../../../components/input";
-import Swal from "sweetalert2";
+// import Swal from "sweetalert2";
 import Usuarios from "../../../server/rotas/usuarios";
 
 const usuario = new Usuarios()

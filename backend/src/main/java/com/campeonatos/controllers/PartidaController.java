@@ -38,7 +38,7 @@ public class PartidaController {
     }
 
     @CrossOrigin(origins = "*", allowedHeaders = "*")
-    @GetMapping("/partidaByClubesId/{id}")
+    @GetMapping("/partidaByClubeId/{id}")
     public List<PartidaResponse> getPartidasByClubesId(@PathVariable("id") long clubesId) {
         List<PartidaResponse> partidas = repository.findByClubeCasaIdOrClubeForaId(clubesId, clubesId).stream().map(PartidaResponse::new).toList();
         return partidas;

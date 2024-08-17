@@ -7,6 +7,11 @@ export default class Perfis {
         return response.data
     }
 
+    public async getPerfilByUsuario(id: number) {
+        const response = await api.get(`/perfilByUsuarioId/${id}`)
+        return response.data
+    }
+
     public async postPerfis(nome: string, usuario_id: number) {
         await api.post("/perfil", {
             nome: nome,

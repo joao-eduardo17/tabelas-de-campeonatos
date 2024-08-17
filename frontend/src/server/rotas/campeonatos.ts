@@ -6,16 +6,22 @@ export default class Campeonatos {
         const response = await api.get("/campeonatos")
         return response.data
     }
+    
+    public async getCampeonatoByPerfil(id: number) {
+        const response = await api.get(`/campeonatoByPerfilId/${id}`)
+        return response.data
+    }
 
-    public async postCampeonato(nome: string, tipo: string, perfil_id: number) {
+    public async postCampeonato(nome: string, tipo: string, finalizado: boolean, perfil_id: number) {
         await api.post("/campeonato", {
             nome: nome,
             tipo: tipo,
+            finalizado: finalizado,
             perfil_id: perfil_id
         })
     }
 
-    public async putCampeonato(id: number, nome?: string, tipo?: string, perfil_id?: number) {
+    public async putCampeonato(id: number, nome?: string, tipo?: string, finalizado?: boolean, perfil_id?: number) {
         if(nome) {
             await api.put(`/campeonato/${id}`, {
                 nome: nome
@@ -23,6 +29,10 @@ export default class Campeonatos {
         }if(tipo) {
             await api.put(`/campeonato/${id}`, {
                 tipo: tipo
+            })
+        }if(finalizado) {
+            await api.put(`/campeonatos${id}`, {
+                finalizado: finalizado
             })
         }if(perfil_id) {
             await api.put(`/campeonato/${id}`, {

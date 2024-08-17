@@ -7,6 +7,11 @@ export default class Rodadas {
         return response.data
     }
 
+    public async getRodadaByCampeonato(id: number) {
+        const response = await api.get(`/rodadaByCampeonatoId/${id}`)
+        return response.data
+    }
+
     public async postRodada(numero: number, campeonato_id: number) {
         await api.post("/rodada", {
             numero: numero,
