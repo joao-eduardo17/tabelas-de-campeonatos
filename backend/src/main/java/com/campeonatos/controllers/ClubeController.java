@@ -29,20 +29,12 @@ public class ClubeController {
     }
 
     @CrossOrigin(origins = "*", allowedHeaders = "*")
-    @GetMapping("/clubeByCampeonatoId/{id}")
-    public List<ClubeResponse> getClubesByCampeonatoId(@PathVariable("id") long campeonatoId) {
-        List<ClubeResponse> clubes = repository.findByCampeonatoId(campeonatoId).stream().map(ClubeResponse::new).toList();
-        return clubes;
-    }
-
-    @CrossOrigin(origins = "*", allowedHeaders = "*")
     @PutMapping("/clube/{id}")
     public void alteraClube(@RequestBody ClubeRequest clube, @PathVariable("id") long clubeId) {
         Clube clubeData = repository.findById(clubeId).get();
         clubeData.setNome(clube.nome());
         clubeData.setDataCriacao(clube.dataCriacao());
         clubeData.setImagem(clube.imagem());
-        clubeData.setCampeonatoId(clube.campeonatoId());
 
         repository.save(clubeData);
     }

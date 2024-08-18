@@ -54,6 +54,8 @@ public class EstatisticaController {
         estatisticaData.setGolsPro(estatistica.golsPro());
         estatisticaData.setGolsContra(estatistica.golsContra());
         estatisticaData.setSaldoGols(estatistica.saldoGols());
+        estatisticaData.setCampeonatoId(estatistica.campeonatoId());
+        estatisticaData.setClubeId(estatistica.clubeId());
         repository.save(estatisticaData);
     }
 
