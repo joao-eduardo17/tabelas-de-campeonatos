@@ -2,8 +2,9 @@ import { Component } from "react";
 import Campeonato from "./pages/campeonato";
 import Navbar from "./components/navbar";
 import CriacaoCampeonato from "./pages/criacaoCampeonato";
-import CadastroUsuario from "./pages/cadastros/usuario";
+import CadastroUsuario from "./pages/cadastros/cadastro";
 import Estatisticas from "./pages/estatisticas";
+import LoginUsuario from "./pages/cadastros/login";
 
 type State = {
   tela: string
@@ -13,7 +14,7 @@ export default class Rotas extends Component<{}, State> {
   constructor(props: {} | Readonly<{}>){
     super(props)
     this.state = {
-      tela: 'Home'
+      tela: 'Home' // Mudar conforme a aplicação pede
     }
     this.mudaTela = this.mudaTela.bind(this)
   }
@@ -26,7 +27,7 @@ export default class Rotas extends Component<{}, State> {
   }
 
   render() {
-    const navbar = <Navbar paginas={["Home", "Criação de Campeonato", "Campeonato", "Cadastro Usuário", "Estatísticas(teste)"]} mudaTela={this.mudaTela}/>
+    const navbar = <Navbar paginas={["Home", "Criação de Campeonato", "Campeonato", "Cadastro Usuário", "Estatísticas(teste)", "Login"]} mudaTela={this.mudaTela}/>
 
     if(this.state.tela === "Home"){
       return (
@@ -60,6 +61,12 @@ export default class Rotas extends Component<{}, State> {
         <>
           {navbar}
           <Estatisticas clube={{nome:"Corinthians", derrotas:0, empates: 3, vitorias: 17, jogos: 20, pontos: 44, pos: 1, gc: 2, gp: 24, sg: 22}} historico={[{casa: "Corinthians", fora: "Palmeiras", placar: "5X0"}, {casa: "Corinthians", fora: "Vasco", placar: "4X2"}]}/>
+        </>
+      )
+    } else if(this.state.tela === "Login"){
+      return(
+        <>
+          <LoginUsuario />
         </>
       )
     }
