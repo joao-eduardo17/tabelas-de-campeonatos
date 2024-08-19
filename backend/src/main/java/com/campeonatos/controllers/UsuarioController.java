@@ -31,7 +31,7 @@ public class UsuarioController {
     @CrossOrigin(origins = "*", allowedHeaders = "*")
     @GetMapping("/usuarioByNomEmail/{email}")
     public List<UsuarioResponse> getPartidasByNomEmail(@PathVariable("email") String nomemail) {
-        List<UsuarioResponse> usuarios = repository.findByNomeOrEmail(nomemail).stream().map(UsuarioResponse::new).toList();
+        List<UsuarioResponse> usuarios = repository.findByNomeOrEmail(nomemail, nomemail).stream().map(UsuarioResponse::new).toList();
         return usuarios;
     }
 
