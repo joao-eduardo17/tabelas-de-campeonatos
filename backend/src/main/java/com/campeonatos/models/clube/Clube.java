@@ -3,7 +3,7 @@ package com.campeonatos.models.clube;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.util.Calendar;
+import java.time.LocalDate;
 
 @Table(name = "clubes")
 @Entity(name = "clubes")
@@ -18,17 +18,14 @@ public class Clube {
     @Setter
     private String nome;
     @Setter
-    private Calendar dataCriacao;
+    private LocalDate dataCriacao;
     @Setter
     private String imagem;
-    @Setter
-    private long campeonatoId;
 
     public Clube(ClubeRequest clube){
         this.nome = clube.nome();
         this.dataCriacao = clube.dataCriacao();
         this.imagem = clube.imagem();
-        this.campeonatoId = clube.campeonatoId();
     }
 
 }

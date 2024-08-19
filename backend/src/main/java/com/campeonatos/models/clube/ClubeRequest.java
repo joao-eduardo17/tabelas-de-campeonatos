@@ -1,6 +1,7 @@
 package com.campeonatos.models.clube;
 
-import java.util.Calendar;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 
-public record ClubeRequest(long id, String nome, Calendar dataCriacao, String imagem, long campeonatoId) {
+public record ClubeRequest(long id, String nome, LocalDate dataCriacao, String imagem) {
 }
