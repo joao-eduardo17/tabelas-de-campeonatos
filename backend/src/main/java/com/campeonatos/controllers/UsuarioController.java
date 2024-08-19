@@ -29,6 +29,13 @@ public class UsuarioController {
     }
 
     @CrossOrigin(origins = "*", allowedHeaders = "*")
+    @GetMapping("/usuarioByNomEmail/{email}")
+    public List<UsuarioResponse> getPartidasByNomEmail(@PathVariable("email") String nomemail) {
+        List<UsuarioResponse> usuarios = repository.findByNomeOrEmail(nomemail).stream().map(UsuarioResponse::new).toList();
+        return usuarios;
+    }
+
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
     @PutMapping("/usuario/{id}")
     public void alteraUsuario(@RequestBody UsuarioRequest usuario, @PathVariable("id") long usuarioId) {
         Usuario usuarioData = repository.findById(usuarioId).get();
