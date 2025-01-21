@@ -2,7 +2,7 @@ import { Component } from "react";
 
 type Props = {
     titulo: string
-}
+} & React.ButtonHTMLAttributes<HTMLButtonElement>
 
 export default class Botao extends Component<Props> {
     render() {

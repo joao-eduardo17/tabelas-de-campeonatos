@@ -61,8 +61,7 @@ export default class CadastroUsuario extends Component {
                 text: `O usuário não foi cadastrado por conta de um erro: ${error}`,
                 icon: "error"
               })
-        }
-        finally { // Não sei se deveria ter o finally
+        } finally { // Não sei se deveria ter o finally
             if (this.nomeRef.current) this.nomeRef.current.value = ""
             if (this.emailRef.current) this.emailRef.current.value = ""
             if (this.senhaRef.current) this.senhaRef.current.value = ""
