@@ -35,6 +35,12 @@ public class RodadaController {
         return rodadas;
     }
 
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
+    @GetMapping("/rodadaId/{id}")
+    public Rodada getRodada(@PathVariable("id") long rodadaId) {
+        Rodada rodada = repository.findById(rodadaId).get();
+        return rodada;
+    }
 
     @CrossOrigin(origins = "*", allowedHeaders = "*")
     @PutMapping("/rodada/{id}")

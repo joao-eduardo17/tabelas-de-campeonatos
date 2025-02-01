@@ -45,6 +45,13 @@ public class PartidaController {
     }
 
     @CrossOrigin(origins = "*", allowedHeaders = "*")
+    @GetMapping("/partidaId/{id}")
+    public Partida getPartida(@PathVariable("id") long partidaId) {
+        Partida partida = repository.findById(partidaId).get();
+        return partida;
+    }
+
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
     @PutMapping("/partida/{id}")
     public void alteraPartida(@RequestBody PartidaRequest partida, @PathVariable("id") long partidaId) {
         Partida partidaData = repository.findById(partidaId).get();

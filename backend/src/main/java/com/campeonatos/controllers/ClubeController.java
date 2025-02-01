@@ -29,6 +29,13 @@ public class ClubeController {
     }
 
     @CrossOrigin(origins = "*", allowedHeaders = "*")
+    @GetMapping("/clubeId/{id}")
+    public Clube getClube(@PathVariable("id") long clubeId) {
+        Clube clube = repository.findById(clubeId).get();
+        return clube;
+    }
+
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
     @PutMapping("/clube/{id}")
     public void alteraClube(@RequestBody ClubeRequest clube, @PathVariable("id") long clubeId) {
         Clube clubeData = repository.findById(clubeId).get();

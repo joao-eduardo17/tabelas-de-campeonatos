@@ -36,6 +36,13 @@ public class UsuarioController {
     }
 
     @CrossOrigin(origins = "*", allowedHeaders = "*")
+    @GetMapping("/usuarioId/{id}")
+    public Usuario getUsuario(@PathVariable("id") long usuarioId) {
+        Usuario usuario = repository.findById(usuarioId).get();
+        return usuario;
+    }
+
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
     @PutMapping("/usuario/{id}")
     public void alteraUsuario(@RequestBody UsuarioRequest usuario, @PathVariable("id") long usuarioId) {
         Usuario usuarioData = repository.findById(usuarioId).get();

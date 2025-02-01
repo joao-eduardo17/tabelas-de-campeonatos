@@ -36,6 +36,13 @@ public class CampeonatoController {
     }
 
     @CrossOrigin(origins = "*", allowedHeaders = "*")
+    @GetMapping("/campeonatoId/{id}")
+    public Campeonato getCampeonato(@PathVariable("id") long campeonatoId) {
+        Campeonato campeonato = repository.findById(campeonatoId).get();
+        return campeonato;
+    }
+
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
     @PutMapping("/campeonato/{id}")
     public void alteraCampeonato(@RequestBody CampeonatoRequest campeonato, @PathVariable("id") long campeonatoId) {
         Campeonato campeonatoData = repository.findById(campeonatoId).get();

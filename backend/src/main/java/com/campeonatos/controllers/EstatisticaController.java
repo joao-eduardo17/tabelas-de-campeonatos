@@ -43,6 +43,13 @@ public class EstatisticaController {
     }
 
     @CrossOrigin(origins = "*", allowedHeaders = "*")
+    @GetMapping("/estatisticaId/{id}")
+    public Estatistica getEstatistica(@PathVariable("id") long estatisticaId) {
+        Estatistica estatistica = repository.findById(estatisticaId).get();
+        return estatistica;
+    }
+
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
     @PutMapping("/estatistica/{id}")
     public void alteraEstatistica(@RequestBody EstatisticaRequest estatistica, @PathVariable("id") long estatisticaId) {
         Estatistica estatisticaData = repository.findById(estatisticaId).get();
