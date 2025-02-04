@@ -12,6 +12,11 @@ export default class Campeonatos {
         return response.data
     }
 
+    public async getOneCampeonato(id: number) {
+        const response = await api.get(`/campeonatoId/${id}`)
+        return response.data
+    }
+
     public async postCampeonato(nome: string, tipo: string, finalizado: boolean, perfil_id: number) {
         await api.post("/campeonato", {
             nome: nome,

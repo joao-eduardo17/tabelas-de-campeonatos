@@ -18,9 +18,9 @@ export default class ListaPartida extends Component<Props> {
                     <li className="list-group-item list-group-item-dark h5" key={0}>{this.props.titulo}</li>
                     {this.props.partidas.map((item, index) => (
                         index % 2 === 0 ? (
-                        <li className="list-group-item" key={index+1}>{item.casa} {item.placar} {item.fora}</li>
+                        <li className="list-group-item" key={index+1}>{item.clubeCasaId} {item.placarCasa}X{item.placarFora} {item.clubeForaId}</li>
                         ) : (
-                            <li className="list-group-item list-group-item-secondary" key={index+1}>{item.casa} {item.placar} {item.fora}</li>
+                            <li className="list-group-item list-group-item-secondary" key={index+1}>{item.clubeCasaId} {item.placarCasa}X{item.placarFora} {item.clubeForaId}</li>
                         )
                     ))}
                 </ul>

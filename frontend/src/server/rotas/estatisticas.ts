@@ -17,6 +17,11 @@ export default class Estatisticas {
         return response.data
     }
 
+    public async getOneEstatistica(id: number) {
+        const response = await api.get(`/estatisticaId/${id}`)
+        return response.data
+    }
+
     public async postEstatistica(campeonato_id: number, clube_id: number) {
         await api.post("/estatisticas", {
             campeonato_id: campeonato_id,
@@ -24,12 +29,8 @@ export default class Estatisticas {
         })
     }
 
-    public async putEstatistica(id: number, nome?: string, pontos?: number, partidas?: number, vitorias?: number, empates?: number, derrotas?: number, golsPro?: number, golsContra?: number, saldoGols?: number, campeonato_id?: number, clube_id?: number) {
-        if(nome) {
-            await api.put(`/estatisticas/${id}`, {
-                nome: nome
-            })
-        }if(pontos) {
+    public async putEstatistica(id: number, pontos?: number, partidas?: number, vitorias?: number, empates?: number, derrotas?: number, golsPro?: number, golsContra?: number, saldoGols?: number, campeonato_id?: number, clube_id?: number) {
+        if(pontos) {
             await api.put(`/estatisticas/${id}`, {
                 pontos: pontos
             })

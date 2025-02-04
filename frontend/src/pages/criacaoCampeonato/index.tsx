@@ -26,6 +26,7 @@ export default class CriacaoCampeonato extends Component<{}, State> {
             <>
                 <CadastraTime onClubesUpdated={this.handleClubesUpdated} />
                 <Lista titulo="Clubes" itens={this.state.clubes} />
+                <input type="text" className="form-control" placeholder="Nome do campeonato" />
                 <Botao titulo="Criar campeonato" />
             </>
         );

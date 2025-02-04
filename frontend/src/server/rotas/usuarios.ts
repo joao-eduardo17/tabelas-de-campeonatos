@@ -7,13 +7,17 @@ export default class Usuarios {
         return response.data
     }
 
+    public async getOneUsuario(id: number) {
+        const response = await api.get(`/usuarioId/${id}`)
+        return response.data
+    }
+
     public async postUsuario(nome: string, email: string, senha: string) {
         await api.post("/usuario", {
             nome: nome,
             email: email,
             senha: senha
         })
-        // console.log("DEU CERTO?")
     }
 
     public async putUsuario(id: number, nome?: string, email?: string, senha?: string) {

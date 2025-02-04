@@ -17,6 +17,11 @@ export default class Partidas {
         return response.data
     }
 
+    public async getOnePartida(id: number) {
+        const response = await api.get(`/partidaId/${id}`)
+        return response.data
+    }
+
     public async postPartida(casa: string, fora: string, clube_casa_id: number, clube_fora_id: number, rodada_id: number) {
         await api.post("/partida", {
             casa: casa,

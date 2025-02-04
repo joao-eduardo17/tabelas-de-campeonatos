@@ -1,5 +1,7 @@
 export default interface Partida {
-    casa: string
-    fora: string
-    placar: string
+    placarCasa: string
+    placarFora: string
+    rodadaId: number
+    clubeCasaId: number
+    clubeForaId: number
 }

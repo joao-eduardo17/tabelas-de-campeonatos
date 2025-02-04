@@ -60,7 +60,7 @@ export default class Rotas extends Component<{}, State> {
       return(
         <>
           {navbar}
-          <Estatisticas clube={{nome:"Corinthians", derrotas:0, empates: 3, vitorias: 17, jogos: 20, pontos: 44, pos: 1, gc: 2, gp: 24, sg: 22}} historico={[{casa: "Corinthians", fora: "Palmeiras", placar: "5X0"}, {casa: "Corinthians", fora: "Vasco", placar: "4X2"}]}/>
+          {/*<Estatisticas clube={{derrotas:0, empates: 3, vitorias: 17, jogos: 20, pontos: 44, pos: 1, gc: 2, gp: 24, sg: 22, campId: 1, clubeId:2}} historico={[{clubeCasaId: 2, clubeForaId: 3, placarCasa: 4, placarFora: 2, rodadaId: 1}, {clubeCasaId: 2, clubeForaId: 3, placarCasa: 4, placarFora: 2, rodadaId: 1}}]}/>*/}
         </>
       )
     } else if(this.state.tela === "Login"){

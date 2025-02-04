@@ -12,6 +12,11 @@ export default class Perfis {
         return response.data
     }
 
+    public async getOnePerfil(id: number) {
+        const response = await api.get(`/perfilId/${id}`)
+        return response.data
+    }
+
     public async postPerfis(nome: string, usuario_id: number) {
         await api.post("/perfil", {
             nome: nome,

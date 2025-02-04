@@ -1,9 +1,9 @@
 import { Component } from "react";
-import Clube from "../../interfaces/clube";
+import ClubeTabela from "../../interfaces/clubeTabela";
 
 type Props = {
     titulos: string[]
-    clubes: Clube[]
+    clubes: ClubeTabela[]
 }
 
 export default class Tabela extends Component<Props> {
@@ -24,26 +24,26 @@ export default class Tabela extends Component<Props> {
                                 <th scope="row">{index+1}°</th>
                                 <td>{clube.nome}</td>
                                 <td>{clube.pontos}</td>
-                                <td>{clube.jogos}</td>
+                                <td>{clube.partidas}</td>
                                 <td>{clube.vitorias}</td>
                                 <td>{clube.empates}</td>
                                 <td>{clube.derrotas}</td>
-                                <td>{clube.gp}</td>
-                                <td>{clube.gc}</td>
-                                <td>{clube.sg}</td>
+                                <td>{clube.golsPro}</td>
+                                <td>{clube.golsContra}</td>
+                                <td>{clube.saldoGols}</td>
                             </tr>
                         ) : (
                             <tr className="table-secondary">
                                 <th scope="row">{index+1}°</th>
                                 <td>{clube.nome}</td>
                                 <td>{clube.pontos}</td>
-                                <td>{clube.jogos}</td>
+                                <td>{clube.partidas}</td>
                                 <td>{clube.vitorias}</td>
                                 <td>{clube.empates}</td>
                                 <td>{clube.derrotas}</td>
-                                <td>{clube.gp}</td>
-                                <td>{clube.gc}</td>
-                                <td>{clube.sg}</td>
+                                <td>{clube.golsPro}</td>
+                                <td>{clube.golsContra}</td>
+                                <td>{clube.saldoGols}</td>
                             </tr>
                         )
                     ))}

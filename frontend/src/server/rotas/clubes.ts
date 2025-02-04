@@ -11,6 +11,11 @@ export default class Clubes {
         const response = await api.get(`/clubeByCampeonatoId/${id}`)
         return response.data
     }
+
+    public async getOneClube(id: number) {
+        const response = await api.get(`/clubeId/${id}`)
+        return response.data
+    }
     
     public async postClube(nome: string, campeonato_id: number, dataCriacao?: Date, imagem?: string) {
         await api.post("/clube", {
