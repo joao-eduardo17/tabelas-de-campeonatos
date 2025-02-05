@@ -1,5 +1,5 @@
-export default interface ClubeTabela {
-    //id: number // Id da visão? ou estatistica?
+export default interface ClubeEstatistica {
+    id: number
     nome: string
     pontos: number
     partidas: number
@@ -9,6 +9,4 @@ export default interface ClubeTabela {
     saldoGols: number
     golsPro: number
     golsContra: number
-    campeonatoId: number
-    clubeId: number
 }

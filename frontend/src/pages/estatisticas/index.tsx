@@ -3,7 +3,7 @@ import Clube from "../../interfaces/clube";
 import Partida from "../../interfaces/partida";
 import CardEstatisticas from "../../components/cards/cardEstatisticas";
 import ListaPartida from "../../components/listas/listaPartidas";
-import ClubeTabela from "../../interfaces/clubeTabela";
+import ClubeTabela from "../../interfaces/clubeEstatistica";
 
 type Props = {
     clube: ClubeTabela

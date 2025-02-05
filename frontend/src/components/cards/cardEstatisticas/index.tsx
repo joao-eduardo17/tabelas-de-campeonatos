@@ -1,6 +1,6 @@
 import { Component } from "react";
 import Estatistica from "../../../interfaces/estatistica";
-import ClubeTabela from "../../../interfaces/clubeTabela";
+import ClubeTabela from "../../../interfaces/clubeEstatistica";
 
 type Props = {
     infos: ClubeTabela

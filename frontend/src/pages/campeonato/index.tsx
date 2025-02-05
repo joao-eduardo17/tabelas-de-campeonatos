@@ -4,7 +4,7 @@ import CadastraPartida from "../../components/modais/cadastraPartida";
 import Clubes from "../../server/rotas/clubes";
 import Estatistica from "../../interfaces/estatistica";
 import Estatisticas from "../../server/rotas/estatisticas";
-import ClubeTabela from "../../interfaces/clubeTabela";
+import ClubeTabela from "../../interfaces/clubeEstatistica";
 import ordenaClubes from "../../scripts/ordenador";
 
 interface State {
@@ -43,6 +43,7 @@ export default class Campeonato extends Component<{}, State> {
 
     async componentDidMount() {
         try {
+            //Realizar o get da view
             const estatisticas: Estatistica[] = await this.api.getEstatisticaByCampeonato(1)
             ordenaClubes(estatisticas)
             await this.converteTudo(estatisticas)

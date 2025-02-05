@@ -1,5 +1,5 @@
 import { Component } from "react";
-import ClubeTabela from "../../interfaces/clubeTabela";
+import ClubeTabela from "../../interfaces/clubeEstatistica";
 
 type Props = {
     titulos: string[]
