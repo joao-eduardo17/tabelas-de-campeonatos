@@ -46,7 +46,6 @@ export default class Campeonato extends Component<{}, State> {
             const estatisticas: Estatistica[] = await this.api.getEstatisticaByCampeonato(1)
             ordenaClubes(estatisticas)
             await this.converteTudo(estatisticas)
-            console.log(this.state.clubes)
         } catch(error){
             console.error(error);
         }

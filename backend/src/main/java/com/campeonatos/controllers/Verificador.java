@@ -1,6 +1,6 @@
-package com.campeonatos.controllers;
-
-public class Verificador {
+//package com.campeonatos.controllers;
+//
+//public class Verificador {
 //    private ArrayList<Rodada> rodadas;
 //
 //    public Verificador(ArrayList<Rodada> rodadas) {
@@ -31,4 +31,4 @@ public class Verificador {
 //        return jogou.get();
 //    }
 
-}
+//}

@@ -1,4 +1,5 @@
 export default interface ClubeTabela {
+    //id: number // Id da visão? ou estatistica?
     nome: string
     pontos: number
     partidas: number
