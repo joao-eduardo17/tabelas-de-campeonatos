@@ -7,6 +7,11 @@ export default class ClubeEstatistica {
         return response.data
     }
 
+    public async getClubeEstatisticaByCampeonato(id: number) {
+        const response = await api.get(`/tabelaByCampeonatoId/${id}`)
+        return response.data
+    }
+
     public async getOneClubeEstatistica(id: number) {
         const response = await api.get(`/tabelaId/${id}`)
         return response.data

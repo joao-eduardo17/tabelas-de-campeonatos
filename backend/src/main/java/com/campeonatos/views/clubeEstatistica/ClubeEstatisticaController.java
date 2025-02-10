@@ -8,12 +8,20 @@ import java.util.List;
 @RestController
 public class ClubeEstatisticaController {
     @Autowired
-    private ClubeEstatisticaRepository repository;
+    private
+    ClubeEstatisticaRepository repository;
 
     @CrossOrigin(origins = "*", allowedHeaders = "*")
     @GetMapping("/tabelas")
     public List<ClubeEstatisticaResponse> getClubeEstatisticas() {
         List<ClubeEstatisticaResponse> tabelas = repository.findAll().stream().map(ClubeEstatisticaResponse::new).toList();
+        return tabelas;
+    }
+
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
+    @GetMapping("/tabelaByCampeonatoId/{id}")
+    public List<ClubeEstatisticaResponse> getClubeEstatisticaByCampeonatoId(@PathVariable("id") long campeonatoId) {
+        List<ClubeEstatisticaResponse> tabelas = repository.findByCampeonatoId(campeonatoId).stream().map(ClubeEstatisticaResponse::new).toList();
         return tabelas;
     }
 

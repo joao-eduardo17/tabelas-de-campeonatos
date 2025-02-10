@@ -9,4 +9,5 @@ export default interface ClubeEstatistica {
     saldoGols: number
     golsPro: number
     golsContra: number
+    campeonatoId: number
 }

@@ -32,6 +32,8 @@ public class ClubeEstatistica {
     private int golsContra;
     @Setter
     private int saldoGols;
+    @Setter
+    private long campeonatoId;
 
     public ClubeEstatistica(ClubeEstatisticaRequest clubeEstatistica) {
         this.nome = clubeEstatistica.nome();
@@ -44,5 +46,6 @@ public class ClubeEstatistica {
         this.golsPro = clubeEstatistica.golsPro();
         this.golsContra = clubeEstatistica.golsContra();
         this.saldoGols = clubeEstatistica.saldoGols();
+        this.campeonatoId = clubeEstatistica.campeonatoId();
     }
 }
