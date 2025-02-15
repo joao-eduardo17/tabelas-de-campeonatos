@@ -1,4 +1,4 @@
 package com.campeonatos.models.usuario;
 
-public record UsuarioRequest(String nome, String email, String senha) {
+public record UsuarioRequest(String nome, String email, String senha, UserRole role) {
 }
