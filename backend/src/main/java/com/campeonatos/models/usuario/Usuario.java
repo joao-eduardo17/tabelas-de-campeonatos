@@ -24,28 +24,35 @@ public class Usuario implements UserDetails {
     private String email;
     @Setter
     private String senha;
-    private UserRole role;
+    private UserRole cargo;
 
     public Usuario(UsuarioRequest usuario) {
         this.nome = usuario.nome();
         this.email = usuario.email();
         this.senha = usuario.senha();
-        this.role = usuario.role();
+        this.cargo = usuario.cargo();
+    }
+
+    public Usuario(String email, String senha, UserRole cargo) {
+        this.nome = email;
+        this.email = email;
+        this.senha = senha;
+        this.cargo = cargo;
     }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        if(this.role == UserRole.ADMIN) return List.of(new SimpleGrantedAuthority("ROLE_ADMIN"), new SimpleGrantedAuthority("ROLE_USER"));
+        if(this.cargo == UserRole.ADMIN) return List.of(new SimpleGrantedAuthority("ROLE_ADMIN"), new SimpleGrantedAuthority("ROLE_USER"));
         else return List.of(new SimpleGrantedAuthority("ROLE_USER"));
     }
 
     @Override
     public String getPassword() {
-        return "";
+        return senha;
     }
 
     @Override
     public String getUsername() {
-        return getNome();
+        return email;
     }
 }

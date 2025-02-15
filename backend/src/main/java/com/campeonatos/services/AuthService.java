@@ -1,4 +1,4 @@
-package com.campeonatos.security;
+package com.campeonatos.services;
 
 import com.campeonatos.models.usuario.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
