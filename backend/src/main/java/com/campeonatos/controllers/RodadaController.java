@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@RequestMapping("rodada")
 public class RodadaController {
     @Autowired
     private RodadaRepository repository;

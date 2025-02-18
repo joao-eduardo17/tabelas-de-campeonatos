@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
+@RequestMapping("partida")
 public class PartidaController {
     @Autowired
     private PartidaRepository repository;

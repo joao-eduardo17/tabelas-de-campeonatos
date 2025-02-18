@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@RequestMapping("tabela")
 public class ClubeEstatisticaController {
     @Autowired
     private

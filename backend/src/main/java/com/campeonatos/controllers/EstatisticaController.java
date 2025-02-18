@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@RequestMapping("estatistica")
 public class EstatisticaController {
     @Autowired
     private EstatisticaRepository repository;
