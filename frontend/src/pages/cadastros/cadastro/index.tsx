@@ -1,9 +1,9 @@
 import { Component, createRef, RefObject } from "react";
 import Input from "../../../components/input";
 import Swal from "sweetalert2";
-import Usuarios from "../../../server/rotas/usuarios";
+import Auth from "../../../server/rotas/auth";
 
-const usuario = new Usuarios()
+const auth = new Auth()
 
 export default class CadastroUsuario extends Component {
     public nomeRef: RefObject<HTMLInputElement>
@@ -20,9 +20,9 @@ export default class CadastroUsuario extends Component {
         this.cadastraUsuario = this.cadastraUsuario.bind(this)
     }
     
-    componentDidMount(): void {
-        usuario.getUsuarios()
-    }
+    // componentDidMount(): void {
+        
+    // }
     
     public async cadastraUsuario() { // Fazer verificação se o usuário colocou um email já existente
         try {
@@ -41,12 +41,12 @@ export default class CadastroUsuario extends Component {
             }
 
             if(senha === confSenha) {
-                usuario.postUsuario(nome, email, senha)
+                auth.cadastro(email, senha, "USER")
                 Swal.fire({
                     title: "Cadastro concluído",
                     text: "O usuário foi cadastrado com sucesso",
                     icon: "success"
-                  })
+                })
             } else {
                 Swal.fire({
                     title: "Erro",
@@ -55,6 +55,7 @@ export default class CadastroUsuario extends Component {
                 })
             }
         } catch (error) {
+            //Melhorar o retorno do erro para o usuário
             console.log(error)
             Swal.fire({
                 title: "Erro",

@@ -10,4 +10,13 @@ export default class Auth {
         })
         return response.data
     }
+
+    public async cadastro(nome: string, senha: string, role: string) {
+        const response = await api.post(`${baseUrl}/cadastro`, {
+            email: nome,
+            senha: senha,
+            role: role
+        })
+        return response.data
+    }
 }
