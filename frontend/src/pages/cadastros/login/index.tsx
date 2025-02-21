@@ -1,9 +1,9 @@
 import { Component, createRef, RefObject } from "react";
 import Input from "../../../components/input";
-import Usuarios from "../../../server/rotas/usuarios";
+import Auth from "../../../server/rotas/auth";
 import Swal from "sweetalert2";
 
-const usuario = new Usuarios()
+const auth = new Auth()
 
 export default class LoginUsuario extends Component {
     public loginRef: RefObject<HTMLInputElement>
@@ -19,10 +19,6 @@ export default class LoginUsuario extends Component {
         // }
     }
 
-    componentDidMount(): void {
-        usuario.getUsuarios()
-    }
-
     public async logaUsuario() {
         try {
             const login = this.loginRef.current?.value || ""
@@ -36,18 +32,21 @@ export default class LoginUsuario extends Component {
                 })
                 return
             }
-            const usuarios = await usuario.getUsuarios()
+            
+            const token = await auth.login(login, senha)
+            console.log(token.token)
+            sessionStorage.setItem("authentication", token.token)
 
-            for(let i = 0; i < usuarios.length; i++) {
-                if((usuarios[i]['nome'] === login && usuarios[i]['senha'] === senha) || (usuarios[i]['email'] === login && usuarios[i]['senha'] === senha)) {
-                    Swal.fire({
-                        title: "Login",
-                        text: "Login feito com sucesso",
-                        icon: "success"
-                    })
-                    break
-                }
-            }
+            // for(let i = 0; i < usuarios.length; i++) {
+            //     if((usuarios[i]['nome'] === login && usuarios[i]['senha'] === senha) || (usuarios[i]['email'] === login && usuarios[i]['senha'] === senha)) {
+            //         Swal.fire({
+            //             title: "Login",
+            //             text: "Login feito com sucesso",
+            //             icon: "success"
+            //         })
+            //         break
+            //     }
+            // }
         } catch (error) {
             console.log(error)
             Swal.fire({

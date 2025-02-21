@@ -43,7 +43,6 @@ export default class Campeonato extends Component<{}, State> {
 
     async componentDidMount() {
         try {
-            //Realizar o get da view
             const clubes: ClubeTabela[] = await this.api.getClubeEstatisticaByCampeonato(1)
             console.log(clubes)
             this.setState({clubes: clubes})
