@@ -20,10 +20,6 @@ export default class CadastroUsuario extends Component {
         this.cadastraUsuario = this.cadastraUsuario.bind(this)
     }
     
-    // componentDidMount(): void {
-        
-    // }
-    
     public async cadastraUsuario() { // Fazer verificação se o usuário colocou um email já existente
         try {
             const nome = this.nomeRef.current?.value || ""
