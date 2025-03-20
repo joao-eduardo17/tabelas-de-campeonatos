@@ -17,9 +17,10 @@ public class CampeonatoController {
 
     @CrossOrigin(origins = "*", allowedHeaders = "*")
     @PostMapping("/campeonato")
-    public void adicionaCampeonato(@RequestBody CampeonatoRequest campeonato) {
+    public long adicionaCampeonato(@RequestBody CampeonatoRequest campeonato) {
         Campeonato campeonatoData = new Campeonato(campeonato);
         repository.save(campeonatoData);
+        return campeonatoData.getId();
     }
 
     @CrossOrigin(origins = "*", allowedHeaders = "*")

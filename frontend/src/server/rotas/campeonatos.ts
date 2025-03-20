@@ -20,12 +20,14 @@ export default class Campeonatos {
     }
 
     public async postCampeonato(nome: string, tipo: string, finalizado: boolean, perfil_id: number) {
-        await api.post(`${url}/campeonato`, {
+        console.log(perfil_id)
+        const response = await api.post(`${url}/campeonato`, {
             nome: nome,
             tipo: tipo,
             finalizado: finalizado,
-            perfil_id: perfil_id
+            perfilId: perfil_id
         })
+        return response.data
     }
 
     public async putCampeonato(id: number, nome?: string, tipo?: string, finalizado?: boolean, perfil_id?: number) {

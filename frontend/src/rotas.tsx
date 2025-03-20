@@ -6,12 +6,13 @@ import CadastroUsuario from "./pages/cadastros/cadastro";
 //import Estatisticas from "./pages/estatisticas";
 import LoginUsuario from "./pages/cadastros/login";
 import Perfis from "./pages/perfis";
+import Campeonatos from "./pages/campeonatos";
 
 export default function Rotas() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<LoginUsuario />} />
+        <Route path="/login" element={<LoginUsuario />} />
         <Route path="/cadastro" element={<><CadastroUsuario /></>} />
         <Route path="/home" element={<><Navbar /></>} />
         <Route path="/criacao-campeonato" element={<><Navbar /><CriacaoCampeonato /></>} />
@@ -19,6 +20,7 @@ export default function Rotas() {
         <Route path="/cadastro" element={<><Navbar /><CadastroUsuario /></>} />
         <Route path="/estatisticas" element={<><Navbar/></>} />
         <Route path="/perfis" element={<><Navbar /><Perfis/></>} />
+        <Route path="/campeonatos" element={<><Navbar /><Campeonatos/></>} />
       </Routes>
     </Router>
   );

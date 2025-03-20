@@ -17,9 +17,10 @@ public class EstatisticaController {
 
     @CrossOrigin(origins = "*", allowedHeaders = "*")
     @PostMapping("/estatistica")
-    public void adicionaEstatistica(@RequestBody EstatisticaRequest estatistica) {
+    public long adicionaEstatistica(@RequestBody EstatisticaRequest estatistica) {
         Estatistica estatisticaData = new Estatistica(estatistica);
         repository.save(estatisticaData);
+        return estatisticaData.getId();
     }
 
     @CrossOrigin(origins = "*", allowedHeaders = "*")

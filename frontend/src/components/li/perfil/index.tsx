@@ -4,7 +4,7 @@ type Props = {
     identificador: number
 } & React.LiHTMLAttributes<HTMLLIElement>
 
-export default function Li(props: Props) {
+export default function LiPerfil(props: Props) {
     const navigate = useNavigate()
     const pegaIdPerfil = () => {
         sessionStorage.setItem("perfil", JSON.stringify(props.identificador))
@@ -12,17 +12,17 @@ export default function Li(props: Props) {
     }
 
     return (
-    <>
-        {props.identificador === 0 ? (
-            <li {...props}>
-                {props.children}
-            </li>
+        <>
+            {props.identificador === 0 ? (
+                <li {...props}>
+                    {props.children}
+                </li>
             ) : (
-            <li {...props} onClick={pegaIdPerfil}>
-                {props.children}
-            </li>
-            )
-        }
-    </>
+                <li {...props} onClick={pegaIdPerfil}>
+                    {props.children}
+                </li>
+                )
+            }
+        </>
     )
 }

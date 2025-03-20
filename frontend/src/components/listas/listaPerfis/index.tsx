@@ -1,15 +1,12 @@
-import { Component } from "react";
 import Perfis from "../../../interfaces/perfil";
-import Li from "../../li";
-import { useNavigate } from "react-router-dom";
-
+import Li from "../../li/perfil";
 
 type Props = {
     itens: Perfis[]
     titulo: string
 }
 
-export default function ListaComId(props: Props) {
+export default function ListaPerfis(props: Props) {
     const style = {cursor: "pointer"}
     return (
         <>

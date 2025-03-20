@@ -17,9 +17,10 @@ public class ClubeController {
 
     @CrossOrigin(origins = "*", allowedHeaders = "*")
     @PostMapping("/clube")
-    public void adicionaClube(@RequestBody ClubeRequest clube) {
+    public long adicionaClube(@RequestBody ClubeRequest clube) {
         Clube clubeData = new Clube(clube);
         repository.save(clubeData);
+        return clubeData.getId();
     }
 
     @CrossOrigin(origins = "*", allowedHeaders = "*")

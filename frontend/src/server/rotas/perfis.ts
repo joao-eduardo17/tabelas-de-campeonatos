@@ -22,7 +22,7 @@ export default class Perfis {
     public async postPerfis(nome: string, usuario_id: number) {
         await api.post(`${url}/perfil`, {
             nome: nome,
-            usuario_id: usuario_id
+            usuarioId: usuario_id
         })
     }
 

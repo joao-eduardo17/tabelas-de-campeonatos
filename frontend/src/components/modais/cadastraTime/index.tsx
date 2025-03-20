@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Swal from "sweetalert2";
 
 interface Props {
     onClubesUpdated: () => void;
@@ -43,9 +44,11 @@ export default class CadastraTime extends Component<Props> {
                             </div>
                             <div className="modal-footer">
                                 <button type="button" className="btn btn-primary" onClick={() => {const clube = (document.getElementById("clubeInput") as HTMLInputElement)
-                                    if(clube.value && clube.value.replaceAll(/[a-z]|[A-Z]|[0-9]/g, "a") === "a".repeat(clube.value.length)) this.adicionaClube(clube.value);
-                                        //console.log(clube.value.replaceAll(/[a-z]|[A-Z]|[0-9]/g, "a") === "a".repeat(clube.value.length))
+                                    if(clube.value && clube.value.replaceAll(/[a-z]|[A-Z]|[0-9]/g, "a") === "a".repeat(clube.value.length)) {
+                                        this.adicionaClube(clube.value);
                                         clube.value = ""
+                                    } else 
+                                        Swal.fire({title: "Erro", text: "O nome do clube está fora dos padrões", icon: "warning"})
                                     }} data-bs-dismiss="modal">
                                     Adicionar clube
                                 </button>

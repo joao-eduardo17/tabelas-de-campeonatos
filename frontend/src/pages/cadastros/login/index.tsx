@@ -27,9 +27,14 @@ export default function LoginUsuario() {
             Swal.fire({ title: "Sucesso", text: "Login realizado!", icon: "success" });
 
             navigate("/perfis");
-        } catch (error) {
-            console.log(error);
-            Swal.fire({ title: "Erro", text: `Ocorreu um erro: ${error}`, icon: "error" });
+        } catch (error: any) {
+            if(error.response.status === 403) {
+                Swal.fire({title: "Erro", text: "Usuário ou senha inválidos", icon: "error"});
+            }
+            else {
+                console.log(error);
+                Swal.fire({ title: "Erro", text: `Ocorreu um erro: ${error}`, icon: "error" });
+            }
         }
     }
 
