@@ -1,5 +1,7 @@
 import { Component } from "react";
 import Perfis from "../../../interfaces/perfil";
+import Li from "../../li";
+import { useNavigate } from "react-router-dom";
 
 
 type Props = {
@@ -7,23 +9,20 @@ type Props = {
     titulo: string
 }
 
-export default class ListaComId extends Component<Props> {
-    
-    render() {
-
-        return (
-            <>
-                <ul className="list-group">
-                    <li className="list-group-item list-group-item-dark h5" key={0}>{this.props.titulo}</li>
-                    {this.props.itens.map((item, index) => (
-                        index % 2 === 0 ? (
-                        <li className="list-group-item" key={item.id}>{item.nome}</li>
-                        ) : (
-                            <li className="list-group-item list-group-item-secondary" key={item.id}>{item.nome}</li>
-                        )
-                    ))}
-                </ul>
-            </>
-        )
-    }
+export default function ListaComId(props: Props) {
+    const style = {cursor: "pointer"}
+    return (
+        <>
+            <ul className="list-group">
+                <Li className="list-group-item list-group-item-dark h5" key={0} identificador={0}>{props.titulo}</Li>
+                {props.itens.map((item, index) => (
+                    index % 2 === 0 ? (
+                        <Li className="list-group-item" key={item.id} identificador={item.id} style={style}>{item.nome}</Li>
+                    ) : (
+                        <Li className="list-group-item list-group-item-secondary" key={item.id} identificador={item.id} style={style}>{item.nome}</Li>
+                    )
+                ))}
+            </ul>
+        </>
+    )
 }

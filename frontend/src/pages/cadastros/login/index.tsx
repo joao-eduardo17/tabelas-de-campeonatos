@@ -22,11 +22,11 @@ export default function LoginUsuario() {
             }
 
             const token = await auth.login(login, senha);
-            sessionStorage.setItem("authentication", token.token);
+            sessionStorage.setItem("authentication", token.token);        
 
             Swal.fire({ title: "Sucesso", text: "Login realizado!", icon: "success" });
 
-            navigate("/home");
+            navigate("/perfis");
         } catch (error) {
             console.log(error);
             Swal.fire({ title: "Erro", text: `Ocorreu um erro: ${error}`, icon: "error" });

@@ -14,6 +14,11 @@ export default class Usuarios {
         return response.data
     }
 
+    public async getIdByEmail(email: string) {
+        const response = await api.get(`${url}/idByEmail/${email}`)
+        return response.data
+    }
+
     public async postUsuario(nome: string, email: string, senha: string) {
         await api.post(`${url}/usuario`, {
             nome: nome,
