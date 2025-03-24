@@ -14,7 +14,7 @@ export default function Perfis() {
     const [usuarioId, setUsuarioId] = useState<number>(0)
 
     const handlePerfisUpdated = async () => {
-        if(usuarioId !== 0) {
+        if(usuarioId > 0) {
             await carregaPerfis()
         }
     }
@@ -35,7 +35,7 @@ export default function Perfis() {
     return (
         <>
             <CadastraPerfil identificador={usuarioId} onPerfisUpdated={handlePerfisUpdated} />
-            <ListaPerfis titulo="Perfis" itens={perfis} />
+            <ListaPerfis titulo="Perfis" itens={perfis} usuario={usuarioId} />
         </>
     );
 }

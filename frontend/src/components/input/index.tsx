@@ -5,7 +5,7 @@ type Props = {
     tipo: string,
     placeholder: string,
     referencia?: any
-}
+} & React.InputHTMLAttributes<HTMLInputElement>
 
 // ADICIONAR BOOTSTRAP
 

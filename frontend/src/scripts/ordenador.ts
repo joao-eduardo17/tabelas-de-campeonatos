@@ -1,7 +1,7 @@
 import ClubeEstatistica from "../interfaces/clubeEstatistica";
 import Estatistica from "../interfaces/estatistica";
 
-export default function ordenaClubes(estatisticas: Estatistica[]): Estatistica[] {
+export default function ordenaClubes(estatisticas: Estatistica[] | ClubeEstatistica[]): Estatistica[] | ClubeEstatistica[] {
     estatisticas.sort(ordenaPartidas)
     estatisticas.sort(ordenaDerrotas)
     estatisticas.sort(ordenaEmpates)

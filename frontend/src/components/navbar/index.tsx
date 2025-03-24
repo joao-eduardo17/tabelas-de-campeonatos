@@ -20,23 +20,8 @@ export default function Navbar() {
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                         <li className="nav-item">
-                            <Link className="nav-link active" to="/criacao-campeonato" style={font}>
-                                Criação de Campeonato
-                            </Link>
-                        </li>
-                        <li className="nav-item">
-                            <Link className="nav-link active" to="/campeonato" style={font}>
-                                Campeonato
-                            </Link>
-                        </li>
-                        <li className="nav-item">
-                            <Link className="nav-link active" to="/cadastro" style={font}>
-                                Cadastro Usuário
-                            </Link>
-                        </li>
-                        <li className="nav-item">
-                            <Link className="nav-link active" to="/estatisticas" style={font}>
-                                Estatísticas
+                            <Link className="nav-link active" to="/perfis" style={font}>
+                                Perfis
                             </Link>
                         </li>
                     </ul>

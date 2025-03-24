@@ -27,16 +27,11 @@ export default class Perfis {
     }
 
     //Arrumar argumentos
-    public async putPerfis(id: number, nome?: string, usuario_id?: number) {
-        if(nome) {
-            await api.put(`${url}/perfil/${id}`, {
-                nome: nome
-            })
-        }if(usuario_id) {
-            await api.put(`${url}/perfil/${id}`, {
-                usuario_id: usuario_id
-            })
-        }
+    public async putPerfis(id: number, nome: string, usuario_id: number) {
+        await api.put(`${url}/perfil/${id}`, {
+            nome: nome,
+            usuarioId: usuario_id
+        })
     }
 
     public async deletePerfil(id: number) {
