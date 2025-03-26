@@ -1,16 +1,16 @@
 package com.campeonatos.models.usuario;
 
 public enum UserRole {
-    ADMIN("admin"),
-    USER("user");
+    ADMIN("ADMIN"),
+    USER("USER");
 
-    private String role;
+    private String cargo;
 
-    UserRole(String role) {
-        this.role = role;
+    UserRole(String cargo) {
+        this.cargo = cargo;
     }
 
-    public String getRole() {
-        return role;
+    public String getCargo() {
+        return cargo;
     }
 }

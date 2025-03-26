@@ -30,12 +30,11 @@ export default function Perfis() {
     useEffect(() => {
         carregaPerfis()
     }, [])
-    
 
     return (
         <>
             <CadastraPerfil identificador={usuarioId} onPerfisUpdated={handlePerfisUpdated} />
-            <ListaPerfis titulo="Perfis" itens={perfis} usuario={usuarioId} />
+            <ListaPerfis titulo="Perfis" itens={perfis} usuario={usuarioId} onPerfisUpdated={handlePerfisUpdated}/>
         </>
     );
 }

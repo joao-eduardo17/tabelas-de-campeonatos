@@ -34,7 +34,7 @@ public class AuthController {
     @CrossOrigin(origins = "*", allowedHeaders = "*")
     @PostMapping("/cadastro")
     public ResponseEntity cadastro(@RequestBody @Valid CadastroRequest data) {
-       if(this.repository.findByEmail(data.email()) != null) return ResponseEntity.badRequest().build();
+        if(this.repository.findByEmail(data.email()) != null) return ResponseEntity.badRequest().build();
 
         String encryptedPassword = new BCryptPasswordEncoder().encode(data.senha());
         Usuario newUsuario = new Usuario(data.email(), encryptedPassword, data.role());
