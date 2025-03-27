@@ -17,9 +17,10 @@ public class RodadaController {
 
     @CrossOrigin(origins = "*", allowedHeaders = "*")
     @PostMapping("/rodada")
-    public void adicionaRodada(@RequestBody RodadaRequest rodada) {
+    public long adicionaRodada(@RequestBody RodadaRequest rodada) {
         Rodada rodadaData = new Rodada(rodada);
         repository.save(rodadaData);
+        return rodadaData.getId();
     }
 
     @CrossOrigin(origins = "*", allowedHeaders = "*")

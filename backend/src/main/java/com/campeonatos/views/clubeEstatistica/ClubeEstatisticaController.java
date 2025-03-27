@@ -9,8 +9,7 @@ import java.util.List;
 @RequestMapping("tabela")
 public class ClubeEstatisticaController {
     @Autowired
-    private
-    ClubeEstatisticaRepository repository;
+    private ClubeEstatisticaRepository repository;
 
     @CrossOrigin(origins = "*", allowedHeaders = "*")
     @GetMapping("/tabelas")
